@@ -1,1 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  --bg-main: #0b1120;
+  --bg-deeper: #070b15;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: #e2e8f0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.glass-panel {
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: rgb(11 17 32 / 62%);
+  backdrop-filter: blur(12px);
+}
+
+.glass-panel-soft {
+  border: 1px solid rgb(255 255 255 / 9%);
+  background: rgb(7 11 21 / 72%);
+  backdrop-filter: blur(12px);
+}
+
+.section-shell {
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: linear-gradient(180deg, rgb(11 17 32 / 70%) 0%, rgb(7 11 21 / 74%) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.premium-card {
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: rgb(7 11 21 / 74%);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  border-color: rgb(56 189 248 / 40%);
+  box-shadow: 0 14px 40px rgb(14 165 233 / 16%);
+}
