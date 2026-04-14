@@ -1,36 +1,55 @@
 <script setup lang="ts">
-import AboutSection from './components/AboutSection.vue'
+import FooterSection from './components/FooterSection.vue'
 import CertificatesSection from './components/CertificatesSection.vue'
 import ExperienceTimeline from './components/ExperienceTimeline.vue'
 import HeroSection from './components/HeroSection.vue'
 import NavbarSection from './components/NavbarSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import TechStackSection from './components/TechStackSection.vue'
+import AboutSection from './components/AboutSection.vue'
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-x-hidden bg-[#0B1120] text-slate-100">
+  <div class="relative min-h-screen overflow-x-hidden" style="background-color: #0b1120; color: #e2e8f0;">
+
+    <!-- ── Animated background layer ── -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div class="absolute -left-48 -top-40 h-112 w-md rounded-full bg-sky-500/15 blur-3xl"></div>
+      <!-- Subtle grid -->
+      <div class="absolute inset-0 bg-grid opacity-60"></div>
+
+      <!-- Animated blobs -->
       <div
-        class="absolute -bottom-40 -right-32 h-104 w-104 rounded-full bg-cyan-400/12 blur-3xl"
+        class="absolute -left-64 -top-48 h-[600px] w-[600px] rounded-full bg-sky-500/10 blur-[120px]"
+        style="animation: blob-drift 18s ease-in-out infinite;"
       ></div>
       <div
-        class="absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-600/8 blur-3xl"
+        class="absolute -right-48 top-1/4 h-[500px] w-[500px] rounded-full bg-indigo-500/8 blur-[100px]"
+        style="animation: blob-drift-2 22s ease-in-out infinite; animation-delay: -7s;"
+      ></div>
+      <div
+        class="absolute bottom-1/4 left-1/3 h-[400px] w-[400px] rounded-full bg-cyan-400/7 blur-[90px]"
+        style="animation: blob-drift 26s ease-in-out infinite; animation-delay: -13s;"
+      ></div>
+      <div
+        class="absolute -bottom-32 right-1/4 h-[350px] w-[350px] rounded-full bg-blue-600/8 blur-[80px]"
+        style="animation: blob-drift-2 20s ease-in-out infinite; animation-delay: -4s;"
       ></div>
     </div>
 
+    <!-- ── Floating Navbar ── -->
     <NavbarSection />
+
+    <!-- ── Hero ── -->
     <HeroSection />
 
-    <main
-      class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-24 sm:px-6 lg:gap-14 lg:px-8"
-    >
-      <AboutSection />
-      <ExperienceTimeline />
-      <TechStackSection />
-      <ProjectsSection />
-      <CertificatesSection />
-    </main>
+    <!-- ── Sections (each is full-width, self-contained) ── -->
+    <AboutSection />
+    <ExperienceTimeline />
+    <TechStackSection />
+    <ProjectsSection />
+    <CertificatesSection />
+
+    <!-- ── Footer ── -->
+    <FooterSection />
   </div>
 </template>

@@ -1,21 +1,98 @@
-<template>
-  <section id="about" class="section-shell scroll-mt-24 rounded-2xl p-7 sm:p-10">
-    <div class="mb-5 space-y-3">
-      <p class="text-xs font-semibold uppercase tracking-[0.26em] text-sky-300">About</p>
-      <h2 class="text-2xl font-bold text-white sm:text-3xl">
-        Membangun Solusi Digital yang
-        <span class="bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent">
-          fungsional dan berdampak
-        </span>
-      </h2>
-    </div>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
 
-    <p class="max-w-4xl text-sm leading-8 text-slate-300 sm:text-base">
-      Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX,
-      dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi teknologi dari
-      tahap konseptual hingga eksekusi visual, termasuk pembuatan aset grafis dan manajemen media
-      sosial. Pribadi yang analitis, inovatif, dan siap berkolaborasi dalam tim untuk menciptakan
-      produk digital yang berdampak nyata.
-    </p>
+const sectionRef = ref<HTMLElement | null>(null)
+const textRef = ref<HTMLElement | null>(null)
+const statsRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+        }
+      })
+    },
+    { threshold: 0.15 },
+  )
+  if (sectionRef.value) observer.observe(sectionRef.value)
+  if (textRef.value) observer.observe(textRef.value)
+  if (statsRef.value) observer.observe(statsRef.value)
+})
+
+const highlights = [
+  { icon: '🎓', label: 'Informatika', sub: 'Universitas Jenderal Soedirman' },
+  { icon: '🏆', label: '7 Awards', sub: 'National & Regional Competitions' },
+  { icon: '💼', label: '2 Internships', sub: 'PT Starindo & PT Cazh' },
+  { icon: '🚀', label: '8+ Projects', sub: 'Web, Mobile & Design' },
+]
+</script>
+
+<template>
+  <section id="about" class="py-24 scroll-mt-24">
+    <div class="section-container">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+        <!-- Left: Stat cards -->
+        <div ref="sectionRef" class="fade-in-left grid grid-cols-2 gap-4">
+          <div
+            v-for="(item, i) in highlights"
+            :key="item.label"
+            class="glass-card rounded-2xl p-6 flex flex-col gap-3"
+            :class="`delay-${(i + 1) * 100}`"
+          >
+            <span class="text-3xl">{{ item.icon }}</span>
+            <div>
+              <div class="font-display font-bold text-white text-lg" style="font-family: 'Outfit', sans-serif;">
+                {{ item.label }}
+              </div>
+              <div class="text-xs text-slate-500 mt-0.5 leading-relaxed">{{ item.sub }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Bio text -->
+        <div ref="textRef" class="fade-in-right space-y-6">
+          <div>
+            <p class="section-label">About Me</p>
+            <h2 class="section-title">
+              Membangun Solusi Digital yang
+              <span style="background: linear-gradient(135deg, #38bdf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                fungsional dan berdampak
+              </span>
+            </h2>
+          </div>
+
+          <p class="text-slate-300 leading-8 text-base">
+            Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX,
+            dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi teknologi dari
+            tahap konseptual hingga eksekusi visual, termasuk pembuatan aset grafis dan manajemen media sosial.
+          </p>
+
+          <p class="text-slate-400 leading-8 text-sm">
+            Pribadi yang analitis, inovatif, dan siap berkolaborasi dalam tim untuk menciptakan produk
+            digital yang berdampak nyata. Passionate tentang intersection of design and engineering —
+            membuat hal yang indah sekaligus berfungsi dengan baik.
+          </p>
+
+          <div class="flex gap-4 flex-wrap pt-2">
+            <div class="flex items-center gap-2 text-sm text-slate-400">
+              <div class="w-2 h-2 rounded-full bg-green-400" style="box-shadow: 0 0 8px rgba(52,211,153,0.8);"></div>
+              Open to opportunities
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-400">
+              <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+              Based in Purwokerto, Indonesia
+            </div>
+          </div>
+
+          <a href="#projects" class="btn-ghost inline-flex">
+            View My Work →
+          </a>
+        </div>
+
+      </div>
+    </div>
   </section>
 </template>
