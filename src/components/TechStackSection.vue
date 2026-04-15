@@ -25,12 +25,12 @@ const techCategories: TechCategory[] = [
     spanClass: 'md:col-span-2 lg:col-span-2 bento-row-2',
     accentColor: '#38bdf8',
     skills: [
-      { name: 'Vue 3',     icon: 'devicon-vuejs-plain colored' },
-      { name: 'Laravel',   icon: 'devicon-laravel-original colored' },
-      { name: 'Tailwind',  icon: 'devicon-tailwindcss-original colored' },
-      { name: 'Node.js',   icon: 'devicon-nodejs-plain colored' },
-      { name: 'React',     icon: 'devicon-react-original colored' },
-      { name: 'Bootstrap', icon: 'devicon-bootstrap-plain colored' },
+      { name: 'Vue 3',     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
+      { name: 'Laravel',   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
+      { name: 'Tailwind',  icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Node.js',   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'React',     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
     ],
   },
   {
@@ -38,11 +38,11 @@ const techCategories: TechCategory[] = [
     spanClass: 'md:col-span-1 lg:col-span-1 bento-row-2',
     accentColor: '#f472b6',
     skills: [
-      { name: 'PHP',        icon: 'devicon-php-plain colored' },
-      { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
-      { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
-      { name: 'Python',     icon: 'devicon-python-plain colored' },
-      { name: 'Dart',       icon: 'devicon-dart-plain colored' },
+      { name: 'PHP',        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+      { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'Python',     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+      { name: 'Dart',       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg' },
     ],
   },
   {
@@ -50,8 +50,8 @@ const techCategories: TechCategory[] = [
     spanClass: 'col-span-1',
     accentColor: '#34d399',
     skills: [
-      { name: 'Flutter', icon: 'devicon-flutter-plain colored' },
-      { name: 'Ionic',   icon: 'devicon-ionic-original colored' },
+      { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' },
+      { name: 'Ionic',   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ionic/ionic-original.svg' },
     ],
   },
   {
@@ -59,9 +59,9 @@ const techCategories: TechCategory[] = [
     spanClass: 'col-span-1',
     accentColor: '#818cf8',
     skills: [
-      { name: 'MySQL',      icon: 'devicon-mysql-plain colored' },
-      { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored' },
-      { name: 'Firebase',   icon: 'devicon-firebase-plain colored' },
+      { name: 'MySQL',      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+      { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'Firebase',   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg' },
     ],
   },
   {
@@ -69,10 +69,10 @@ const techCategories: TechCategory[] = [
     spanClass: 'col-span-1 md:col-span-2',
     accentColor: '#fb923c',
     skills: [
-      { name: 'Figma',       icon: 'devicon-figma-plain colored' },
-      { name: 'Photoshop',   icon: 'devicon-photoshop-plain colored' },
-      { name: 'Illustrator', icon: 'devicon-illustrator-plain colored' },
-      { name: 'Canva',       icon: 'devicon-canva-original colored' },
+      { name: 'Figma',       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+      { name: 'Photoshop',   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg' },
+      { name: 'Illustrator', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg' },
+      { name: 'Canva',       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg' },
     ],
   },
   {
@@ -80,10 +80,10 @@ const techCategories: TechCategory[] = [
     spanClass: 'col-span-1 md:col-span-2',
     accentColor: '#a3e635',
     skills: [
-      { name: 'Git',     icon: 'devicon-git-plain colored' },
-      { name: 'VS Code', icon: 'devicon-vscode-plain colored' },
-      { name: 'Docker',  icon: 'devicon-docker-plain colored' },
-      { name: 'Postman', icon: 'devicon-postman-plain colored' },
+      { name: 'Git',     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+      { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
+      { name: 'Docker',  icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+      { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
     ],
   },
 ]
@@ -170,10 +170,13 @@ function onCardLeave(event: MouseEvent) {
               class="skill-chip"
               :style="{ transitionDelay: `${si * 40}ms` }"
             >
-              <i
-                :class="[skill.icon, 'skill-icon']"
-                :aria-label="skill.name"
-              ></i>
+              <img
+                :src="skill.icon"
+                :alt="skill.name"
+                class="skill-icon w-9 h-9 object-contain"
+                loading="lazy"
+                draggable="false"
+              />
               <span class="skill-name">{{ skill.name }}</span>
             </div>
           </div>
@@ -335,12 +338,12 @@ function onCardLeave(event: MouseEvent) {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-/* ── Devicon icon sizing ── */
+/* ── SVG Devicon image sizing ── */
 .skill-icon {
-  font-size: 2rem;            /* 32px */
-  line-height: 1;
+  width: 2.25rem;
+  height: 2.25rem;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.40));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.20));
 }
 
 /* ── Chip label ── */
