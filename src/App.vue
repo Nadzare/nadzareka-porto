@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import Preloader from './components/Preloader.vue'
 import FooterSection from './components/FooterSection.vue'
 import CertificatesSection from './components/CertificatesSection.vue'
 import ContactSection from './components/ContactSection.vue'
@@ -21,11 +22,55 @@ function calculateScrollProgress() {
     : 0
 }
 
-onMounted(() => window.addEventListener('scroll', calculateScrollProgress, { passive: true }))
-onUnmounted(() => window.removeEventListener('scroll', calculateScrollProgress))
+// ── Custom Trailing Cursor ────────────────────────────────────────
+const mouseX    = ref(0)
+const mouseY    = ref(0)
+const trailingX = ref(0)
+const trailingY = ref(0)
+
+let rafId: number
+
+function onMouseMove(e: MouseEvent) {
+  mouseX.value = e.clientX
+  mouseY.value = e.clientY
+}
+
+function animateCursor() {
+  // Linear interpolation — 0.15 = snappy but still visibly trailing
+  trailingX.value += (mouseX.value - trailingX.value) * 0.15
+  trailingY.value += (mouseY.value - trailingY.value) * 0.15
+  rafId = requestAnimationFrame(animateCursor)
+}
+
+onMounted(() => {
+  window.addEventListener('scroll',    calculateScrollProgress, { passive: true })
+  window.addEventListener('mousemove', onMouseMove,             { passive: true })
+  rafId = requestAnimationFrame(animateCursor)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll',    calculateScrollProgress)
+  window.removeEventListener('mousemove', onMouseMove)
+  cancelAnimationFrame(rafId)
+})
 </script>
 
 <template>
+  <!-- ── Preloader (first-visit only, skipped via sessionStorage) ── -->
+  <Preloader />
+
+  <!-- ── Custom Cursor: Dot (snaps to exact mouse position) ── -->
+  <div
+    class="fixed w-2 h-2 bg-white rounded-full pointer-events-none z-[99999] -translate-x-1/2 -translate-y-1/2"
+    :style="{ left: mouseX + 'px', top: mouseY + 'px' }"
+  />
+
+  <!-- ── Custom Cursor: Ring (trails behind with lerp smoothing) ── -->
+  <div
+    class="fixed w-10 h-10 rounded-full pointer-events-none z-[99998] -translate-x-1/2 -translate-y-1/2 border border-white/30 shadow-[0_0_8px_rgba(56,189,248,0.25)]"
+    :style="{ left: trailingX + 'px', top: trailingY + 'px' }"
+  />
+
   <!-- ── Scroll Progress Bar ── -->
   <div
     class="fixed top-0 left-0 h-1 bg-blue-500 z-[9999] transition-all duration-75 ease-out shadow-[0_0_10px_rgba(56,189,248,0.8)]"
@@ -77,3 +122,12 @@ onUnmounted(() => window.removeEventListener('scroll', calculateScrollProgress))
     <FooterSection />
   </div>
 </template>
+
+<!-- Hide native cursor only on devices with a precise pointer (mouse/trackpad) -->
+<style>
+@media (pointer: fine) {
+  body, a, button, [role="button"] {
+    cursor: none !important;
+  }
+}
+</style>
