@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import FooterSection from './components/FooterSection.vue'
 import CertificatesSection from './components/CertificatesSection.vue'
 import ContactSection from './components/ContactSection.vue'
@@ -9,9 +10,28 @@ import ProjectsSection from './components/ProjectsSection.vue'
 import TechStackSection from './components/TechStackSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
+
+// ── Scroll Progress Bar ──────────────────────────────────────────
+const scrollProgress = ref(0)
+
+function calculateScrollProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight
+  scrollProgress.value = scrollable > 0
+    ? (window.scrollY / scrollable) * 100
+    : 0
+}
+
+onMounted(() => window.addEventListener('scroll', calculateScrollProgress, { passive: true }))
+onUnmounted(() => window.removeEventListener('scroll', calculateScrollProgress))
 </script>
 
 <template>
+  <!-- ── Scroll Progress Bar ── -->
+  <div
+    class="fixed top-0 left-0 h-1 bg-blue-500 z-[9999] transition-all duration-75 ease-out shadow-[0_0_10px_rgba(56,189,248,0.8)]"
+    :style="{ width: scrollProgress + '%' }"
+  />
+
   <div class="relative min-h-screen overflow-x-hidden" style="background-color: #0b1120; color: #e2e8f0;">
 
     <!-- ── Animated background layer ── -->

@@ -12,7 +12,8 @@ let typeTimer: ReturnType<typeof setTimeout>
 let cursorTimer: ReturnType<typeof setInterval>
 
 function type() {
-  const currentRole = roles[roleIndex.value]
+  const currentRole = roles[roleIndex.value] ?? ''
+  if (currentRole === '') return   // safety guard (never hit at runtime)
   if (!isDeleting.value) {
     displayText.value = currentRole.slice(0, charIndex.value + 1)
     charIndex.value++
