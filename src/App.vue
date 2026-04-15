@@ -8,6 +8,7 @@ import NavbarSection from './components/NavbarSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import TechStackSection from './components/TechStackSection.vue'
 import AboutSection from './components/AboutSection.vue'
+import ServicesSection from './components/ServicesSection.vue'
 </script>
 
 <template>
@@ -45,6 +46,7 @@ import AboutSection from './components/AboutSection.vue'
 
     <!-- ── Sections (each is full-width, self-contained) ── -->
     <AboutSection />
+    <ServicesSection />
     <ExperienceTimeline />
     <TechStackSection />
     <ProjectsSection />
