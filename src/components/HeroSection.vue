@@ -72,8 +72,8 @@ const stats = [
       ></div>
     </div>
 
-    <div class="section-container relative z-10 w-full py-16 lg:py-20">
-      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <div class="section-container relative z-10 w-full py-10 md:py-16 lg:py-20">
+      <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
 
         <!-- LEFT: Text Content -->
         <div class="space-y-8" style="animation: hero-slide-left 0.9s cubic-bezier(0.4,0,0.2,1) both;">
@@ -102,7 +102,7 @@ const stats = [
                   -webkit-text-fill-color: transparent;
                   background-clip: text;
                 "
-              >ALATIHA</span>
+              >ALFATIHA</span>
             </h1>
           </div>
 
@@ -157,7 +157,7 @@ const stats = [
           </div>
 
           <!-- Stats row -->
-          <div class="grid grid-cols-4 gap-3 pt-4 border-t border-white/8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/8">
             <div v-for="stat in stats" :key="stat.label" class="text-center">
               <div
                 class="font-display font-black text-2xl"
@@ -182,21 +182,21 @@ const stats = [
               animation: float-slow 10s ease-in-out infinite;
             "
           ></div>
-          <!-- Orbit ring -->
+          <!-- Orbit ring — hidden on mobile to avoid overflow -->
           <div
-            class="absolute rounded-full border border-sky-400/15"
-            style="width: 420px; height: 420px; left: 50%; transform: translateX(-50%); top: 10px;"
+            class="absolute hidden md:block rounded-full border border-sky-400/15"
+            style="width: min(420px, 80vw); height: min(420px, 80vw); left: 50%; transform: translateX(-50%); top: 10px;"
           >
             <div
               class="absolute w-3 h-3 rounded-full bg-sky-400/60 -top-1.5 left-1/2 -translate-x-1/2"
               style="box-shadow: 0 0 12px rgba(56,189,248,0.8);"
             ></div>
           </div>
-          <!-- Photo -->
+          <!-- Photo — capped at 75vw on mobile -->
           <img
             src="@/assets/kafah-hero.png"
             alt="Nadzare Kafah Alatiha"
-            class="relative z-10 max-h-[520px] w-auto object-contain select-none"
+            class="relative z-10 max-h-[75vw] md:max-h-[520px] w-auto max-w-[75vw] md:max-w-none object-contain select-none"
             style="
               animation: float 6s ease-in-out infinite;
               filter: drop-shadow(0 20px 60px rgba(14,165,233,0.25)) drop-shadow(0 0 40px rgba(56,189,248,0.12));

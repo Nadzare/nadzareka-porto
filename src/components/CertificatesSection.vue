@@ -202,7 +202,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="certificates" class="relative py-28 scroll-mt-24 overflow-hidden">
+  <section id="certificates" class="relative py-16 md:py-28 scroll-mt-24 overflow-hidden">
 
     <!-- ── Ambient glows ── -->
     <div class="cert-glow cert-glow--amber"  aria-hidden="true"></div>
@@ -226,7 +226,7 @@ onMounted(() => {
       <!-- ══════════════════════════════
            CATEGORY TABS
       ══════════════════════════════ -->
-      <div class="tabs-wrapper mb-14">
+      <div class="tabs-wrapper mb-10 md:mb-14">
         <div class="tabs-track">
           <button
             v-for="tab in tabs"
@@ -428,13 +428,21 @@ onMounted(() => {
 /* ──────────────────────────────────────────────
    TABS
    ────────────────────────────────────────────── */
-.tabs-wrapper { display: flex; justify-content: center; }
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
 .tabs-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  max-width: 100%;
 }
+.tabs-track::-webkit-scrollbar { display: none; }
 .tab-pill {
   display: inline-flex;
   align-items: center;
@@ -469,7 +477,10 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .carousel-shell { gap: 2rem; }
 }
 
 /* ── Nav buttons ── */
@@ -516,10 +527,10 @@ onMounted(() => {
   position: relative;
   width: 100%;
   max-width: 500px;
-  /* card image ratio 4:3 on 500px ≈ 375px
-     + compact text body ~100px
-     + peek offset ~32px bottom padding      */
-  height: 530px;
+  height: 490px;
+}
+@media (min-width: 640px) {
+  .deck-stage { height: 530px; }
 }
 
 /* Counter badge floating top-right of deck */
@@ -739,8 +750,7 @@ onMounted(() => {
    RESPONSIVE
    ────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .deck-stage   { height: 460px; max-width: 100%; }
-  .carousel-shell { gap: 0.875rem; }
-  .nav-btn      { width: 2.5rem; height: 2.5rem; }
+  .deck-stage   { max-width: calc(100vw - 7rem); } /* account for both nav-btn widths + gaps */
+  .nav-btn      { width: 2.25rem; height: 2.25rem; flex-shrink: 0; }
 }
 </style>

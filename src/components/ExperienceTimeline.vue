@@ -110,14 +110,14 @@ const typeIcon: Record<string, string> = {
 </script>
 
 <template>
-  <section id="experience" ref="sectionRef" class="py-24 scroll-mt-24">
+  <section id="experience" ref="sectionRef" class="py-12 md:py-24 scroll-mt-24">
     <div class="section-container">
 
       <!-- Section header -->
-      <div class="text-center mb-16">
+      <div class="text-center mb-10 md:mb-16">
         <p class="section-label">Experience</p>
         <h2 class="section-title">Pengalaman Profesional</h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed px-4 md:px-0">
           Perjalanan dari dunia akademik hingga industri nyata — membangun keahlian lintas domain
           teknologi dan desain.
         </p>

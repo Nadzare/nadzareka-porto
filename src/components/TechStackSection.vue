@@ -235,16 +235,23 @@ function onCardLeave(event: MouseEvent) {
   }
 }
 
-/* Row-span helper (Tailwind v4 scoped) */
+/* Row-span helper — ONLY on md+ where grid has multiple columns */
 .bento-row-2 {
-  grid-row: span 2;
+  grid-row: span 1; /* mobile: normal flow */
+}
+@media (min-width: 768px) {
+  .bento-row-2 { grid-row: span 2; }
 }
 
-/* Tailwind utility pass-throughs (used via :class binding) */
-:deep(.md\:col-span-2) { grid-column: span 2; }
-:deep(.md\:col-span-1) { grid-column: span 1; }
-:deep(.lg\:col-span-2) { grid-column: span 2; }
-:deep(.lg\:col-span-1) { grid-column: span 1; }
+/* Tailwind utility pass-throughs — only active when grid has columns */
+@media (min-width: 768px) {
+  :deep(.md\:col-span-2) { grid-column: span 2; }
+  :deep(.md\:col-span-1) { grid-column: span 1; }
+}
+@media (min-width: 1024px) {
+  :deep(.lg\:col-span-2) { grid-column: span 2; }
+  :deep(.lg\:col-span-1) { grid-column: span 1; }
+}
 
 /* ──────────────────────────────────────────────
    BENTO CARD

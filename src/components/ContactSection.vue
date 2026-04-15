@@ -75,7 +75,7 @@ const socials = [
 </script>
 
 <template>
-  <section id="contact" class="relative py-28 scroll-mt-24 overflow-hidden">
+  <section id="contact" class="relative py-16 md:py-28 scroll-mt-24 overflow-hidden">
 
     <!-- ── Ambient glows ── -->
     <div class="contact-glow contact-glow--blue"   aria-hidden="true"></div>
@@ -84,7 +84,7 @@ const socials = [
     <div class="section-container relative z-10">
 
       <!-- ── Section header ── -->
-      <div ref="sectionRef" class="fade-in-up mb-14 text-center">
+      <div ref="sectionRef" class="fade-in-up mb-10 md:mb-14 text-center">
         <p class="section-label">Get In Touch</p>
         <h2 class="section-title">
           Let's&nbsp;<span class="glow-text">Connect</span>
@@ -328,12 +328,16 @@ const socials = [
 .social-box {
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.75rem;
+  padding: 1.5rem 1.25rem;
   flex-shrink: 0;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .social-box {
-    width: 220px;          /* fixed width, height naturally stretches */
+    padding: 2rem 1.75rem;
+    width: auto;
+    min-width: 200px;
+    max-width: 240px;
   }
 }
 

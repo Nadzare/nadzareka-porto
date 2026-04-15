@@ -145,7 +145,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="projects" class="relative py-28 scroll-mt-24 overflow-hidden">
+  <section id="projects" class="relative py-16 md:py-28 scroll-mt-24 overflow-hidden">
     <!-- ── Ambient glows ── -->
     <div class="proj-glow proj-glow--blue" aria-hidden="true"></div>
     <div class="proj-glow proj-glow--purple" aria-hidden="true"></div>
@@ -163,7 +163,7 @@ onMounted(() => {
       <!-- ══════════════════════════════════════════════════
            TAB FILTER BAR
       ══════════════════════════════════════════════════ -->
-      <div ref="tabsRef" class="tabs-wrapper fade-in-up delay-100 mb-12">
+      <div ref="tabsRef" class="tabs-wrapper fade-in-up delay-100 mb-10 md:mb-12">
         <div class="tabs-track">
           <button
             v-for="cat in categories"
@@ -308,15 +308,20 @@ onMounted(() => {
 .tabs-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-/* Horizontal scroll on narrow screens */
 .tabs-track {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
-  padding-bottom: 4px; /* space for scrollbar on edge */
-  scrollbar-width: none; /* hide scrollbar Firefox */
+  padding-bottom: 6px;
+  padding-left: 1px;
+  padding-right: 1px;
+  max-width: 100%;
+  scrollbar-width: none;
 }
 .tabs-track::-webkit-scrollbar {
   display: none;
