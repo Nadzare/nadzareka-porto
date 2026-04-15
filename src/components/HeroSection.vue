@@ -128,7 +128,7 @@ const stats = [
                   -webkit-text-fill-color: transparent;
                   background-clip: text;
                 "
-                >ALATIHA</span
+                >ALFATIHA</span
               >
             </h1>
           </div>
