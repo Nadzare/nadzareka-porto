@@ -55,9 +55,16 @@ onMounted(() => {
       <!-- ── Center content ── -->
       <div class="relative z-10 flex flex-col items-center">
 
-        <!-- Monogram / logo mark -->
-        <div class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(56,189,248,0.15)]">
-          <span class="text-2xl font-black tracking-tight bg-gradient-to-br from-sky-400 to-blue-600 bg-clip-text text-transparent">NK</span>
+        <!-- Profile Avatar -->
+        <div
+          class="mb-6 w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-blue-500 overflow-hidden"
+          style="animation: avatar-breathe 3s ease-in-out infinite;"
+        >
+          <img
+            src="@/assets/kafah-hero.png"
+            alt="Nadzare Kafah"
+            class="w-full h-full object-cover object-top"
+          />
         </div>
 
         <!-- Name -->
@@ -103,5 +110,16 @@ onMounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@keyframes avatar-breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.7);
+  }
 }
 </style>
