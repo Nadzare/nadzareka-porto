@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import FooterSection from './components/FooterSection.vue'
 import CertificatesSection from './components/CertificatesSection.vue'
+import ContactSection from './components/ContactSection.vue'
 import ExperienceTimeline from './components/ExperienceTimeline.vue'
 import HeroSection from './components/HeroSection.vue'
 import NavbarSection from './components/NavbarSection.vue'
@@ -48,6 +49,7 @@ import AboutSection from './components/AboutSection.vue'
     <TechStackSection />
     <ProjectsSection />
     <CertificatesSection />
+    <ContactSection />
 
     <!-- ── Footer ── -->
     <FooterSection />
