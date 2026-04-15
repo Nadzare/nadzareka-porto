@@ -94,18 +94,18 @@ onMounted(() => {
 })
 onUnmounted(() => window.removeEventListener('scroll', updateProgress))
 
-// ── Badge styles ───────────────────────────────────────────────────
-const badge: Record<string, { bg: string; border: string; color: string; label: string }> = {
+// ── Badge styles ──────────────────────────────────────────
+const badge: Record<Experience['type'], { bg: string; border: string; color: string; label: string }> = {
   ACADEMIC:     { bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.30)', color: '#a5b4fc', label: 'Academic'     },
   INTERNSHIP:   { bg: 'rgba(56,189,248,0.12)',  border: 'rgba(56,189,248,0.30)',  color: '#7dd3fc', label: 'Internship'   },
   ORGANIZATION: { bg: 'rgba(52,211,153,0.12)',  border: 'rgba(52,211,153,0.30)',  color: '#6ee7b7', label: 'Organization' },
 }
 
-// ── Icon map ───────────────────────────────────────────────────────
+// ── Icon map (FontAwesome class strings) ──────────────────────────
 const typeIcon: Record<string, string> = {
-  ACADEMIC:     '🎓',
-  INTERNSHIP:   '💼',
-  ORGANIZATION: '🤝',
+  ACADEMIC:     'fa-solid fa-building-columns',
+  INTERNSHIP:   'fa-solid fa-briefcase',
+  ORGANIZATION: 'fa-solid fa-users',
 }
 </script>
 
@@ -186,7 +186,7 @@ const typeIcon: Record<string, string> = {
               >
                 <div class="flex items-start justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
-                    <span class="text-xl">{{ typeIcon[exp.type] }}</span>
+                    <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
                       <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
@@ -244,7 +244,7 @@ const typeIcon: Record<string, string> = {
               >
                 <div class="flex items-start justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
-                    <span class="text-xl">{{ typeIcon[exp.type] }}</span>
+                    <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
                       <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
@@ -285,7 +285,7 @@ const typeIcon: Record<string, string> = {
               >
                 <div class="flex items-start justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
-                    <span class="text-xl">{{ typeIcon[exp.type] }}</span>
+                    <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
                       <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>

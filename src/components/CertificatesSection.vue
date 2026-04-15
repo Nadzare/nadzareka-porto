@@ -102,9 +102,9 @@ const courses: OtherItem[] = [
 ]
 
 const tabs = [
-  { key: 'awards'       as CertTab, label: 'Penghargaan & Kejuaraan', icon: '🏆' },
-  { key: 'organization' as CertTab, label: 'Kepanitiaan & Volunteer',  icon: '🤝' },
-  { key: 'course'       as CertTab, label: 'Bootcamp & Course',        icon: '📚' },
+  { key: 'awards'       as CertTab, label: 'Penghargaan & Kejuaraan', fa: 'fa-solid fa-medal'       },
+  { key: 'organization' as CertTab, label: 'Kepanitiaan & Volunteer',  fa: 'fa-solid fa-users'       },
+  { key: 'course'       as CertTab, label: 'Bootcamp & Course',        fa: 'fa-solid fa-laptop-code' },
 ]
 
 /* ─────────────────────────────────────────────────────────────
@@ -135,12 +135,14 @@ function prev() {
    diff 0 = top, diff 1 = one behind (peek right), diff 2 = two behind (peek left)
    diff >= 3 = hidden beneath the pile.
 ───────────────────────────────────────────────────────────── */
-interface StackStyles {
+import type { CSSProperties } from 'vue'
+
+interface StackStyles extends CSSProperties {
   zIndex: string
   transform: string
   opacity: string
-  pointerEvents: string
-  cursor: string
+  pointerEvents: 'auto' | 'none'
+  cursor: 'default' | 'pointer'
 }
 
 function getStackStyle(index: number, total: number): StackStyles {
@@ -233,7 +235,7 @@ onMounted(() => {
             :class="{ 'tab-pill--active': activeTab === tab.key }"
             @click="activeTab = tab.key"
           >
-            <span>{{ tab.icon }}</span>
+            <i :class="tab.fa" aria-hidden="true"></i>
             {{ tab.label }}
           </button>
         </div>

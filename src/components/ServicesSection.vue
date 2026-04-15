@@ -5,7 +5,7 @@ interface Service {
   title: string
   description: string
   accentColor: string
-  svg: string   // inline SVG path content
+  fa: string   // FontAwesome class string e.g. 'fa-solid fa-code'
 }
 
 const services: Service[] = [
@@ -14,78 +14,42 @@ const services: Service[] = [
     accentColor: '#38bdf8',
     description:
       'Pembuatan website performa tinggi yang responsif, SEO-friendly, dan scalable menggunakan tech-stack modern terkini.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="3" width="20" height="14" rx="2"/>
-      <path d="M8 21h8M12 17v4"/>
-      <path d="M7 8l-3 3 3 3M17 8l3 3-3 3M13 6l-2 12"/>
-    </svg>`,
+    fa: 'fa-solid fa-code',
   },
   {
     title: 'Mobile Development',
     accentColor: '#34d399',
     description:
       'Pembangunan aplikasi mobile cross-platform yang mulus dan interaktif untuk ekosistem iOS maupun Android.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="6" y="2" width="12" height="20" rx="2"/>
-      <path d="M12 18h.01"/>
-      <path d="M9 6h6"/>
-    </svg>`,
+    fa: 'fa-solid fa-mobile-screen',
   },
   {
     title: 'UI/UX Design',
     accentColor: '#f472b6',
     description:
       'Perancangan antarmuka yang intuitif, estetik, dan sangat berfokus pada kenyamanan pengalaman interaksi pengguna.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="3"/>
-      <path d="M12 3c0 0 4 3 4 9s-4 9-4 9"/>
-      <path d="M12 3c0 0-4 3-4 9s4 9 4 9"/>
-      <path d="M3 12h18"/>
-      <circle cx="12" cy="12" r="9"/>
-    </svg>`,
+    fa: 'fa-solid fa-pen-ruler',
   },
   {
     title: 'IT Consultant',
     accentColor: '#fbbf24',
     description:
       'Layanan konsultasi arsitektur sistem, pemilihan tech-stack, dan eskalasi efisiensi bisnis digital untuk UMKM dan rintisan.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 18h6M10 22h4"/>
-      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
-      <line x1="12" y1="2" x2="12" y2="4"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-      <line x1="2" y1="12" x2="4" y2="12"/>
-      <line x1="19.78" y1="4.22" x2="18.36" y2="5.64"/>
-      <line x1="22" y1="12" x2="20" y2="12"/>
-    </svg>`,
+    fa: 'fa-solid fa-lightbulb',
   },
   {
     title: 'Graphic Design',
     accentColor: '#fb923c',
     description:
       'Pembuatan aset visual kreatif, branding identitas, dan materi pemasaran yang menarik serta profesional.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="13.5" cy="6.5" r="1.5"/>
-      <circle cx="17.5" cy="10.5" r="1.5"/>
-      <circle cx="8.5" cy="7.5" r="1.5"/>
-      <circle cx="6.5" cy="12.5" r="1.5"/>
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1.08-.05 1.6-.13"/>
-      <path d="M22 12a10 10 0 0 1-.33 2.57"/>
-      <path d="M15 19l3 3 5-5"/>
-    </svg>`,
+    fa: 'fa-solid fa-palette',
   },
   {
     title: 'Social Media Management',
     accentColor: '#818cf8',
     description:
       'Perancangan strategi konten, produksi aset visual, hingga optimasi kampanye digital untuk meningkatkan engagement.',
-    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="18" cy="5" r="3"/>
-      <circle cx="6" cy="12" r="3"/>
-      <circle cx="18" cy="19" r="3"/>
-      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-    </svg>`,
+    fa: 'fa-solid fa-share-nodes',
   },
 ]
 
@@ -138,7 +102,7 @@ onMounted(() => {
 
           <!-- ── Icon ── -->
           <div class="srv-icon-wrap">
-            <span class="srv-icon" v-html="service.svg"></span>
+            <i :class="service.fa" class="srv-icon" aria-hidden="true"></i>
           </div>
 
           <!-- ── Title ── -->
@@ -265,18 +229,15 @@ onMounted(() => {
   transform: scale(1.08) rotate(-3deg);
 }
 
+/* Icon — FontAwesome i-tag, sized with font-size */
 .srv-icon {
+  font-size: 1.4rem;
+  color: var(--srv-color, #38bdf8);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.375rem;
-  height: 1.375rem;
-  color: var(--srv-color, #38bdf8);
-}
-.srv-icon :deep(svg) {
-  width: 100%;
-  height: 100%;
-  display: block;
+  line-height: 1;
+  transition: color 300ms ease;
 }
 
 /* ──────────────────────────────────────────────

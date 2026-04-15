@@ -22,10 +22,10 @@ onMounted(() => {
 })
 
 const highlights = [
-  { icon: '🎓', label: 'Informatika', sub: 'Universitas Jenderal Soedirman' },
-  { icon: '🏆', label: '7 Awards', sub: 'National & Regional Competitions' },
-  { icon: '💼', label: '2 Internships', sub: 'PT Starindo & PT Cazh' },
-  { icon: '🚀', label: '8+ Projects', sub: 'Web, Mobile & Design' },
+  { fa: 'fa-solid fa-graduation-cap', color: '#60a5fa', label: 'Informatika',    sub: 'Universitas Jenderal Soedirman'   },
+  { fa: 'fa-solid fa-trophy',         color: '#fbbf24', label: '7 Awards',       sub: 'National & Regional Competitions' },
+  { fa: 'fa-solid fa-briefcase',      color: '#60a5fa', label: '2 Internships',  sub: 'PT Starindo & PT Cazh'            },
+  { fa: 'fa-solid fa-rocket',         color: '#38bdf8', label: '8+ Projects',    sub: 'Web, Mobile & Design'             },
 ]
 </script>
 
@@ -42,7 +42,13 @@ const highlights = [
             class="glass-card rounded-2xl p-6 flex flex-col gap-3"
             :class="`delay-${(i + 1) * 100}`"
           >
-            <span class="text-3xl">{{ item.icon }}</span>
+            <!-- FontAwesome icon with per-card accent colour -->
+            <i
+              :class="item.fa"
+              class="text-3xl mb-1"
+              :style="{ color: item.color, filter: `drop-shadow(0 0 8px ${item.color}60)` }"
+              aria-hidden="true"
+            ></i>
             <div>
               <div class="font-display font-bold text-white text-lg" style="font-family: 'Outfit', sans-serif;">
                 {{ item.label }}
