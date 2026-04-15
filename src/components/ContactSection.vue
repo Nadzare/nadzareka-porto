@@ -106,7 +106,7 @@ const socials = [
         ──────────────────────────────────────────── -->
         <div
           ref="socialRef"
-          class="social-box fade-in-up delay-200"
+          class="social-box fade-in-up delay-200 bg-white/70 backdrop-blur-xl border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
           aria-label="Social links"
         >
           <!-- glass shine -->
@@ -146,7 +146,7 @@ const socials = [
         <!-- ────────────────────────────────────────
              RIGHT — Contact Form Card
         ──────────────────────────────────────────── -->
-        <div ref="cardRef" class="form-card fade-in-up delay-300">
+        <div ref="cardRef" class="form-card fade-in-up delay-300 bg-white/70 backdrop-blur-xl border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none">
           <!-- glass shine -->
           <div class="box-shine" aria-hidden="true"></div>
 
@@ -170,7 +170,7 @@ const socials = [
                   name="name"
                   placeholder="Your Name ..."
                   required
-                  class="field-input"
+                  class="w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
                 />
               </div>
               <div class="field-group">
@@ -182,7 +182,7 @@ const socials = [
                   name="email"
                   placeholder="Your Email ..."
                   required
-                  class="field-input"
+                  class="w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
                 />
               </div>
             </div>
@@ -197,7 +197,7 @@ const socials = [
                 placeholder="Your Message ..."
                 rows="4"
                 required
-                class="field-input field-textarea"
+                class="resize-y min-h-[110px] w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
               ></textarea>
             </div>
 
@@ -300,10 +300,6 @@ const socials = [
 .form-card {
   position: relative;
   border-radius: 1.5rem;                         /* rounded-3xl */
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(30,41,59,.40);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   overflow: hidden;
   transition: border-color 300ms ease, box-shadow 300ms ease;
 }
@@ -483,40 +479,23 @@ const socials = [
   color: rgba(148,163,184,.75);
 }
 
-/* ── Inputs & Textarea ── */
-.field-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  /* Light mode */
-  border: 1px solid #cbd5e1;       /* slate-300 */
-  background: #ffffff;
-  color: #0f172a;                  /* slate-900 */
-  font-size: 0.875rem;
-  font-family: inherit;
-  outline: none;
-  box-sizing: border-box;
-  transition: border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+/* ── Autofill Fixes for Glassmorphism ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #0f172a;
 }
-/* Dark mode override */
-:global(.dark) .field-input {
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(11,17,32,.60);
-  color: #e2e8f0;
-}
-.field-input::placeholder { color: rgba(100,116,139,.60); }
-.field-input:focus {
-  border-color: rgba(56,189,248,.55);
-  background: rgba(11,17,32,.75);
-  box-shadow: 0 0 0 3px rgba(56,189,248,.12), 0 4px 16px rgba(0,0,0,.25);
-}
-:global(.dark) .field-input:focus {
-  background: rgba(11,17,32,.75);
-}
-.field-textarea {
-  resize: vertical;
-  min-height: 110px;
-  line-height: 1.65;
+:global(.dark) input:-webkit-autofill,
+:global(.dark) input:-webkit-autofill:hover,
+:global(.dark) input:-webkit-autofill:focus,
+:global(.dark) textarea:-webkit-autofill,
+:global(.dark) textarea:-webkit-autofill:hover,
+:global(.dark) textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
 }
 
 /* ──────────────────────────────────────────────

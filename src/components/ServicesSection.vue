@@ -93,7 +93,7 @@ onMounted(() => {
           v-for="(service, i) in services"
           :key="service.title"
           :ref="(el) => { if (el) cardRefs[i] = el as HTMLElement }"
-          class="srv-card fade-in-up"
+          class="srv-card fade-in-up bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
           :class="`delay-${Math.min((i + 1) * 100, 600)}`"
           :style="{ '--srv-color': service.accentColor } as any"
         >
@@ -178,10 +178,6 @@ onMounted(() => {
   flex-direction: column;
   padding: 2rem;
   border-radius: 1.5rem;
-  /* ─ Light mode: clean white card ─ */
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: default;
   transition:
@@ -190,14 +186,7 @@ onMounted(() => {
     box-shadow 300ms cubic-bezier(.4, 0, .2, 1),
     background 300ms cubic-bezier(.4, 0, .2, 1);
 }
-/* Dark mode override */
-:global(.dark) .srv-card {
-  border: 1px solid rgba(255, 255, 255, .10);
-  background: rgba(30, 41, 59, .40);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: none;
-}
+/* Dark mode override is no longer hardcoded here */
 .srv-card:hover {
   transform: translateY(-8px);
   border-color: color-mix(in srgb, var(--srv-color, #38bdf8) 45%, transparent);

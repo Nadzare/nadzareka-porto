@@ -147,7 +147,7 @@ function onCardLeave(event: MouseEvent) {
           v-for="(category, ci) in techCategories"
           :key="category.title"
           :ref="(el) => { if (el) bentoRefs[ci] = el as HTMLElement }"
-          :class="['bento-card fade-in-up', category.spanClass, `delay-${Math.min((ci + 1) * 100, 600)}`]"
+          :class="['bento-card bento-card-hover fade-in-up bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none', category.spanClass, `delay-${Math.min((ci + 1) * 100, 600)}`]"
           @mouseenter="onCardEnter($event, category.accentColor)"
           @mouseleave="onCardLeave($event)"
         >
@@ -260,10 +260,6 @@ function onCardLeave(event: MouseEvent) {
   position: relative;
   padding: 1.5rem;
   border-radius: 1.5rem;
-  /* Light mode */
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: default;
   transition:
@@ -271,13 +267,6 @@ function onCardLeave(event: MouseEvent) {
     border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
     background 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-:global(.dark) .bento-card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: none;
 }
 
 .bento-card:hover {

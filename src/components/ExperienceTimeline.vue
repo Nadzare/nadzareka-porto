@@ -235,7 +235,7 @@ const typeIcon: Record<string, string> = {
             <article
               class="rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 cursor-default
                      bg-white border border-slate-200 shadow-sm
-                     dark:bg-[#0b1120]/80 dark:border-white/10 dark:shadow-none dark:backdrop-blur-md"
+                     dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
               @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
               @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow=''"
             >
@@ -273,7 +273,7 @@ const typeIcon: Record<string, string> = {
                 class="hidden md:block w-full max-w-sm rounded-2xl p-5 transition-all duration-300
                        hover:-translate-y-1 cursor-default
                        bg-white border border-slate-200 shadow-sm
-                       dark:bg-[#0b1120]/80 dark:border-white/10 dark:shadow-none dark:backdrop-blur-md"
+                       dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
                 @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
                 @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow=''"
               >

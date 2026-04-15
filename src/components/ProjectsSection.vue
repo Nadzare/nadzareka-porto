@@ -258,8 +258,8 @@ onMounted(() => {
           <div class="proj-body">
             <h3 class="proj-title">{{ project.title }}</h3>
             <div class="proj-tags">
-              <span v-for="tag in project.techStack" :key="tag" class="proj-tag">
-                {{ tag }}
+              <span v-for="tech in project.techStack" :key="tech" class="px-3 py-1 text-xs rounded-full bg-slate-100 text-slate-600 border border-slate-200 dark:bg-white/5 dark:text-gray-300 dark:border-white/10">
+                {{ tech }}
               </span>
             </div>
           </div>
@@ -405,23 +405,12 @@ onMounted(() => {
 .proj-card {
   position: relative;
   border-radius: 1.5rem;
-  /* Light mode */
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: pointer;
   transition:
     transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 300ms ease,
     box-shadow 300ms ease;
-}
-:global(.dark) .proj-card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: none;
 }
 .proj-card:hover {
   transform: translateY(-8px);

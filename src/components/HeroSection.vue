@@ -229,55 +229,61 @@ const stats = [
 
         <!-- RIGHT: Photo -->
         <div
-          class="relative flex items-end justify-center lg:justify-end"
+          class="relative flex items-center justify-center lg:justify-end w-full mt-10 lg:mt-0"
           style="
             animation: hero-slide-right 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
             animation-delay: 0.15s;
           "
         >
-          <!-- Glow ring behind photo -->
-          <div
-            class="absolute inset-0 m-auto rounded-full"
-            style="
-              max-width: 460px;
-              max-height: 460px;
-              background: radial-gradient(
-                circle at 60% 40%,
-                rgba(56, 189, 248, 0.2) 0%,
-                rgba(14, 165, 233, 0.1) 50%,
-                transparent 70%
-              );
-              animation: float-slow 10s ease-in-out infinite;
-            "
-          ></div>
-          <!-- Orbit ring — hidden on mobile to avoid overflow -->
-          <div
-            class="absolute hidden md:block rounded-full border border-sky-400/15"
-            style="
-              width: min(420px, 80vw);
-              height: min(420px, 80vw);
-              left: 50%;
-              transform: translateX(-50%);
-              top: 10px;
-            "
-          >
+          <!-- The container holding the image -->
+          <div class="relative w-[80vw] max-w-md md:max-w-xl aspect-square md:aspect-[4/5] mx-auto lg:mx-0">
+            
+            <!-- Glow ring behind the mask -->
             <div
-              class="absolute w-3 h-3 rounded-full bg-sky-400/60 -top-1.5 left-1/2 -translate-x-1/2"
-              style="box-shadow: 0 0 12px rgba(56, 189, 248, 0.8)"
+              class="absolute inset-0 m-auto blur-3xl opacity-50"
+              style="
+                background: rgba(14, 165, 233, 0.4);
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                animation: float-slow 10s ease-in-out infinite;
+              "
             ></div>
+
+            <!-- The Asymmetrical Mask & Image -->
+            <div
+              class="relative w-full h-full overflow-hidden border-2 border-sky-400/30 shadow-[0_0_40px_rgba(56,189,248,0.25)]"
+              style="
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                animation: float 6s ease-in-out infinite alternate;
+              "
+            >
+              <img
+                src="@/assets/kafah-hero.png"
+                alt="Nadzare Kafah Alatiha"
+                class="w-full h-full object-cover select-none pointer-events-none"
+                style="object-position: center 20%;"
+                draggable="false"
+              />
+            </div>
+
+            <!-- Orbit ring small highlight -->
+            <div
+              class="absolute hidden md:block rounded-full border border-sky-400/15"
+              style="
+                width: 120%;
+                height: 120%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+              "
+            >
+              <div
+                class="absolute w-3 h-3 rounded-full bg-sky-400/60 -top-1.5 left-1/2 -translate-x-1/2"
+                style="box-shadow: 0 0 12px rgba(56, 189, 248, 0.8)"
+              ></div>
+            </div>
+
           </div>
-          <!-- Photo — capped at 75vw on mobile -->
-          <img
-            src="@/assets/kafah-hero.png"
-            alt="Nadzare Kafah Alatiha"
-            class="relative z-10 max-h-[75vw] md:max-h-[520px] w-auto max-w-[75vw] md:max-w-none object-contain select-none"
-            style="
-              animation: float 6s ease-in-out infinite;
-              filter: drop-shadow(0 20px 60px rgba(14, 165, 233, 0.25))
-                drop-shadow(0 0 40px rgba(56, 189, 248, 0.12));
-            "
-            draggable="false"
-          />
         </div>
       </div>
     </div>
