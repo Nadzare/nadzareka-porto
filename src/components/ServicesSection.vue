@@ -82,7 +82,7 @@ onMounted(() => {
         <h2 class="section-title">
           My <span class="glow-text">Services</span>
         </h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
           Solusi digital end-to-end — dari konsep hingga produk yang siap digunakan.
         </p>
       </div>
@@ -175,13 +175,13 @@ onMounted(() => {
 .srv-card {
   position: relative;
   display: flex;
-  flex-direction: column;   /* flex column so mt-auto pushes CTA down */
+  flex-direction: column;
   padding: 2rem;
-  border-radius: 1.5rem;    /* rounded-3xl */
-  border: 1px solid rgba(255, 255, 255, .10);
-  background: rgba(30, 41, 59, .40);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  /* ─ Light mode: clean white card ─ */
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: default;
   transition:
@@ -190,9 +190,23 @@ onMounted(() => {
     box-shadow 300ms cubic-bezier(.4, 0, .2, 1),
     background 300ms cubic-bezier(.4, 0, .2, 1);
 }
+/* Dark mode override */
+:global(.dark) .srv-card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(30, 41, 59, .40);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: none;
+}
 .srv-card:hover {
   transform: translateY(-8px);
   border-color: color-mix(in srgb, var(--srv-color, #38bdf8) 45%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--srv-color, #38bdf8) 15%, transparent),
+    0 20px 60px rgba(0, 0, 0, .12),
+    0 0 40px color-mix(in srgb, var(--srv-color, #38bdf8) 10%, transparent);
+}
+:global(.dark) .srv-card:hover {
   background: rgba(30, 41, 59, .55);
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--srv-color, #38bdf8) 15%, transparent),
@@ -247,18 +261,20 @@ onMounted(() => {
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #1e293b;         /* light: slate-800 */
   margin: 1.375rem 0 0.625rem;
   line-height: 1.25;
 }
+:global(.dark) .srv-title { color: #f1f5f9; }
 
 .srv-desc {
   font-size: 0.875rem;
-  color: #94a3b8;
+  color: #475569;         /* light: slate-600 */
   line-height: 1.7;
   margin: 0;
-  flex: 1;  /* fills vertical space so CTA sits at the bottom */
+  flex: 1;
 }
+:global(.dark) .srv-desc { color: #94a3b8; }
 
 /* ──────────────────────────────────────────────
    BOTTOM CTA

@@ -155,7 +155,7 @@ onMounted(() => {
       <div ref="headerRef" class="fade-in-up mb-10 text-center">
         <p class="section-label">Portfolio</p>
         <h2 class="section-title">Project <span class="glow-text">Showcase</span></h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
           Koleksi proyek yang dibangun dengan passion — dari hackathon hingga produk nyata.
         </p>
       </div>
@@ -405,16 +405,23 @@ onMounted(() => {
 .proj-card {
   position: relative;
   border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Light mode */
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: pointer;
   transition:
     transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 300ms ease,
     box-shadow 300ms ease;
+}
+:global(.dark) .proj-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: none;
 }
 .proj-card:hover {
   transform: translateY(-8px);
@@ -535,16 +542,18 @@ onMounted(() => {
    ────────────────────────────────────────────── */
 .proj-body {
   padding: 1.125rem 1.25rem;
-  background: rgba(7, 11, 21, 0.85);
+  background: transparent;
 }
+:global(.dark) .proj-body { background: rgba(7, 11, 21, 0.85); }
 
 .proj-title {
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: 0.975rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #1e293b;         /* light: slate-800 */
   margin: 0 0 0.625rem;
 }
+:global(.dark) .proj-title { color: #f1f5f9; }
 
 .proj-tags {
   display: flex;
@@ -557,6 +566,11 @@ onMounted(() => {
   border-radius: 0.375rem;
   font-size: 0.62rem;
   font-weight: 500;
+  color: #475569;         /* light: slate-600 */
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+:global(.dark) .proj-tag {
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);

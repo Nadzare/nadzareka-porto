@@ -136,7 +136,7 @@ function onCardLeave(event: MouseEvent) {
       <div ref="headerRef" class="fade-in-up mb-14 text-center">
         <p class="section-label">Tech Stack</p>
         <h2 class="section-title">Keahlian &amp; Tools</h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
           Teknologi yang saya gunakan untuk membangun product — dari frontend hingga mobile.
         </p>
       </div>
@@ -259,11 +259,11 @@ function onCardLeave(event: MouseEvent) {
 .bento-card {
   position: relative;
   padding: 1.5rem;
-  border-radius: 1.5rem;          /* rounded-3xl */
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  /* Light mode */
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04);
   overflow: hidden;
   cursor: default;
   transition:
@@ -271,6 +271,13 @@ function onCardLeave(event: MouseEvent) {
     border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
     background 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+:global(.dark) .bento-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: none;
 }
 
 .bento-card:hover {
@@ -351,11 +358,12 @@ function onCardLeave(event: MouseEvent) {
 .skill-name {
   font-size: 0.65rem;
   font-weight: 500;
-  color: #94a3b8;
+  color: #475569;         /* light: slate-600 */
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
 }
+:global(.dark) .skill-name { color: #94a3b8; }
 
 /* ──────────────────────────────────────────────
    RESPONSIVE COLUMN SPANNING

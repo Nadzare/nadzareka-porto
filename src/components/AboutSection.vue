@@ -50,7 +50,7 @@ const highlights = [
               aria-hidden="true"
             ></i>
             <div>
-              <div class="font-display font-bold text-white text-lg" style="font-family: 'Outfit', sans-serif;">
+              <div class="font-display font-bold text-slate-900 dark:text-white text-lg" style="font-family: 'Outfit', sans-serif;">
                 {{ item.label }}
               </div>
               <div class="text-xs text-slate-500 mt-0.5 leading-relaxed">{{ item.sub }}</div>
@@ -70,25 +70,25 @@ const highlights = [
             </h2>
           </div>
 
-          <p class="text-slate-300 leading-8 text-base">
+          <p class="text-slate-600 dark:text-slate-300 leading-8 text-base">
             Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX,
             dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi teknologi dari
             tahap konseptual hingga eksekusi visual, termasuk pembuatan aset grafis dan manajemen media sosial.
           </p>
 
-          <p class="text-slate-400 leading-8 text-sm">
+          <p class="text-slate-500 dark:text-slate-400 leading-8 text-sm">
             Pribadi yang analitis, inovatif, dan siap berkolaborasi dalam tim untuk menciptakan produk
             digital yang berdampak nyata. Passionate tentang intersection of design and engineering —
             membuat hal yang indah sekaligus berfungsi dengan baik.
           </p>
 
           <div class="flex gap-4 flex-wrap pt-2">
-            <div class="flex items-center gap-2 text-sm text-slate-400">
-              <div class="w-2 h-2 rounded-full bg-green-400" style="box-shadow: 0 0 8px rgba(52,211,153,0.8);"></div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+              <div class="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400" style="box-shadow: 0 0 8px rgba(52,211,153,0.8);"></div>
               Open to opportunities
             </div>
-            <div class="flex items-center gap-2 text-sm text-slate-400">
-              <div class="w-2 h-2 rounded-full bg-sky-400"></div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+              <div class="w-2 h-2 rounded-full bg-sky-500 dark:bg-sky-400"></div>
               Based in Purwokerto, Indonesia
             </div>
           </div>

@@ -1,28 +1,49 @@
 @import 'tailwindcss';
 
-:root {
-  color-scheme: dark;
+/*
+  ━━ TAILWIND v4 — CLASS-BASED DARK MODE ━━━━━━━━━━━━━━━━━━━━━━━━━
+  In Tailwind v4 there is NO tailwind.config.js darkMode option.
+  Instead, declare the dark variant here using @variant.
+  The selector below means: "apply when an ancestor has class='dark'"
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@variant dark (&:where(.dark, .dark *));
 
-  /* Core palette */
-  --bg-main: #0b1120;
-  --bg-deeper: #070b15;
-  --bg-card: rgba(7, 11, 21, 0.72);
-  --bg-glass: rgba(11, 17, 32, 0.60);
+:root {
+  color-scheme: light;
+
+  /* ━━ Light mode palette ━━ */
+  --bg-main:    #f8fafc;            /* slate-50 */
+  --bg-deeper:  #f1f5f9;            /* slate-100 */
+  --bg-card:    rgba(255,255,255,0.80);
+  --bg-glass:   rgba(255,255,255,0.70);
 
   /* Accent */
-  --accent: #38bdf8;
-  --accent-glow: rgba(56, 189, 248, 0.35);
-  --accent-glow-soft: rgba(56, 189, 248, 0.12);
-  --accent-border: rgba(56, 189, 248, 0.30);
+  --accent:          #0ea5e9;           /* sky-500, good contrast on light */
+  --accent-glow:     rgba(14, 165, 233, 0.30);
+  --accent-glow-soft: rgba(14, 165, 233, 0.10);
+  --accent-border:   rgba(14, 165, 233, 0.35);
 
   /* Typography */
   --font-display: 'Outfit', 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
 
   /* Transitions */
   --transition-fast: 180ms ease;
   --transition-base: 260ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ━━ Dark mode overrides (activated by class="dark" on <html>) ━━ */
+.dark {
+  color-scheme: dark;
+  --bg-main:    #0b1120;
+  --bg-deeper:  #070b15;
+  --bg-card:    rgba(7, 11, 21, 0.72);
+  --bg-glass:   rgba(11, 17, 32, 0.60);
+  --accent:          #38bdf8;
+  --accent-glow:     rgba(56, 189, 248, 0.35);
+  --accent-glow-soft: rgba(56, 189, 248, 0.12);
+  --accent-border:   rgba(56, 189, 248, 0.30);
 }
 
 * {
@@ -39,8 +60,14 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   background-color: var(--bg-main);
-  color: #e2e8f0;
+  color: #1e293b;              /* slate-800 — light mode default text */
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body text */
+.dark body {
+  color: #e2e8f0;
 }
 
 #app {
@@ -186,9 +213,12 @@ body {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 800;
-  color: #f1f5f9;
+  color: #1e293b;              /* slate-800 in light mode */
   line-height: 1.15;
   margin: 0;
+}
+.dark .section-title {
+  color: #f1f5f9;
 }
 
 /* ============================================================

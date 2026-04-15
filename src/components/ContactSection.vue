@@ -89,7 +89,7 @@ const socials = [
         <h2 class="section-title">
           Let's&nbsp;<span class="glow-text">Connect</span>
         </h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
           Have a project in mind, a question, or just want to say hi?
           My inbox is always open.
         </p>
@@ -488,20 +488,30 @@ const socials = [
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(11,17,32,.60);
-  color: #e2e8f0;
+  /* Light mode */
+  border: 1px solid #cbd5e1;       /* slate-300 */
+  background: #ffffff;
+  color: #0f172a;                  /* slate-900 */
   font-size: 0.875rem;
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
   transition: border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
+/* Dark mode override */
+:global(.dark) .field-input {
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(11,17,32,.60);
+  color: #e2e8f0;
+}
 .field-input::placeholder { color: rgba(100,116,139,.60); }
 .field-input:focus {
   border-color: rgba(56,189,248,.55);
   background: rgba(11,17,32,.75);
   box-shadow: 0 0 0 3px rgba(56,189,248,.12), 0 4px 16px rgba(0,0,0,.25);
+}
+:global(.dark) .field-input:focus {
+  background: rgba(11,17,32,.75);
 }
 .field-textarea {
   resize: vertical;

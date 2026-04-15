@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useTheme } from './composables/useTheme'
 import Preloader from './components/Preloader.vue'
 import FooterSection from './components/FooterSection.vue'
 import CertificatesSection from './components/CertificatesSection.vue'
@@ -42,7 +43,10 @@ function animateCursor() {
   rafId = requestAnimationFrame(animateCursor)
 }
 
+const { init } = useTheme()
+
 onMounted(() => {
+  init()                        // Apply theme before first paint
   window.addEventListener('scroll',    calculateScrollProgress, { passive: true })
   window.addEventListener('mousemove', onMouseMove,             { passive: true })
   rafId = requestAnimationFrame(animateCursor)
@@ -77,7 +81,7 @@ onUnmounted(() => {
     :style="{ width: scrollProgress + '%' }"
   />
 
-  <div class="relative min-h-screen overflow-x-hidden" style="background-color: #0b1120; color: #e2e8f0;">
+  <div class="relative min-h-screen overflow-x-hidden bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
     <!-- ── Animated background layer ── -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">

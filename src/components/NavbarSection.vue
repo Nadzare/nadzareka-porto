@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useTheme } from '../composables/useTheme'
 
 /* ─────────────────────────────────────────────────────────────
    NAV LINKS
@@ -45,6 +46,9 @@ function onScroll() {
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
+
+/* ── Theme ──────────────────────────────────────────────────── */
+const { isDark, toggleTheme } = useTheme()
 
 /* ─────────────────────────────────────────────────────────────
    SMOOTH SCROLL
@@ -120,6 +124,19 @@ function scrollToTop(e: MouseEvent) {
         </svg>
         Resume
       </a>
+
+      <!-- ── Theme toggle ── -->
+      <button
+        class="theme-toggle"
+        :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+        :aria-label="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+        @click="toggleTheme"
+      >
+        <span class="theme-icon" :class="{ 'theme-icon--spinning': true }">
+          <i v-if="isDark"  class="fa-solid fa-sun"  key="sun"  />
+          <i v-else         class="fa-solid fa-moon" key="moon" />
+        </span>
+      </button>
 
       <!-- ── Mobile hamburger ── -->
       <button
@@ -396,5 +413,37 @@ function scrollToTop(e: MouseEvent) {
 .mobile-resume:hover {
   background: rgba(56,189,248,.16);
   border-color: rgba(56,189,248,.38);
+}
+/* ── Theme Toggle Button ────────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.theme-toggle:hover {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, .10);
+  border-color: rgba(245, 158, 11, .30);
+  transform: rotate(15deg);
+}
+
+/* The inner span holds the icon — transitions its own opacity+rotate on change */
+.theme-icon {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 200ms ease;
+}
+.theme-icon i {
+  display: block;
 }
 </style>

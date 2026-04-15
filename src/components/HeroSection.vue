@@ -79,10 +79,11 @@ const stats = [
         <div class="space-y-8" style="animation: hero-slide-left 0.9s cubic-bezier(0.4,0,0.2,1) both;">
           <!-- Badge -->
           <div
-            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold"
-            style="background: rgba(56,189,248,0.10); border: 1px solid rgba(56,189,248,0.25); color: #7dd3fc;"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold
+                   bg-sky-50 border border-sky-200 text-sky-600
+                   dark:bg-sky-400/10 dark:border-sky-400/25 dark:text-sky-300"
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-400" style="animation: pulse-glow 2s ease infinite;"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400" style="animation: pulse-glow 2s ease infinite;"></span>
             Available for Work · Portfolio 2026
           </div>
 
@@ -92,8 +93,8 @@ const stats = [
               class="font-display font-black leading-none tracking-tight"
               style="font-family: 'Outfit', sans-serif; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.95;"
             >
-              <span class="text-white">NADZARE</span><br />
-              <span class="text-white">KAFAH</span>
+              <span class="text-slate-900 dark:text-white">NADZARE</span><br />
+              <span class="text-slate-900 dark:text-white">KAFAH</span>
               <span
                 class="block"
                 style="
@@ -102,26 +103,26 @@ const stats = [
                   -webkit-text-fill-color: transparent;
                   background-clip: text;
                 "
-              >ALFATIHA</span>
+              >ALATIHA</span>
             </h1>
           </div>
 
           <!-- Typewriter -->
           <div class="flex items-center gap-1 h-8">
-            <span class="text-slate-400 text-lg font-medium">is a&nbsp;</span>
+            <span class="text-slate-500 dark:text-slate-400 text-lg font-medium">is a&nbsp;</span>
             <span
-              class="text-lg font-bold"
-              style="color: #38bdf8; min-width: 1ch;"
+              class="text-lg font-bold text-sky-600 dark:text-sky-400"
+              style="min-width: 1ch;"
             >{{ displayText }}</span>
             <span
-              class="inline-block w-0.5 h-6 rounded-full bg-sky-400 ml-0.5"
+              class="inline-block w-0.5 h-6 rounded-full bg-sky-500 dark:bg-sky-400 ml-0.5"
               :style="{ opacity: showCursor ? 1 : 0 }"
               style="transition: opacity 0.1s;"
             ></span>
           </div>
 
           <!-- Bio -->
-          <p class="text-slate-300 leading-relaxed max-w-xl" style="font-size: clamp(0.9rem, 1.5vw, 1.05rem);">
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl" style="font-size: clamp(0.9rem, 1.5vw, 1.05rem);">
             Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX,
             dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi dari tahap
             konseptual hingga eksekusi visual.
@@ -157,11 +158,11 @@ const stats = [
           </div>
 
           <!-- Stats row -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-200 dark:border-white/8">
             <div v-for="stat in stats" :key="stat.label" class="text-center">
               <div
-                class="font-display font-black text-2xl"
-                style="font-family: 'Outfit', sans-serif; color: #38bdf8;"
+                class="font-display font-black text-2xl text-sky-600 dark:text-sky-400"
+                style="font-family: 'Outfit', sans-serif;"
               >{{ stat.value }}</div>
               <div class="text-xs text-slate-500 mt-0.5">{{ stat.label }}</div>
             </div>
@@ -209,9 +210,9 @@ const stats = [
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-600">
       <span class="text-xs tracking-widest uppercase">Scroll</span>
-      <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
+      <div class="w-px h-12 bg-gradient-to-b from-slate-400 dark:from-slate-600 to-transparent"></div>
     </div>
   </section>
 </template>

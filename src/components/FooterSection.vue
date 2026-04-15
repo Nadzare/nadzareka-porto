@@ -55,7 +55,7 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="relative border-t border-white/10 overflow-hidden">
+  <footer class="relative border-t border-slate-200 dark:border-white/10 bg-slate-900 overflow-hidden">
 
     <!-- Subtle top glow line -->
     <div class="footer-glow-line" aria-hidden="true"></div>

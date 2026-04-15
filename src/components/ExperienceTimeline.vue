@@ -117,7 +117,7 @@ const typeIcon: Record<string, string> = {
       <div class="text-center mb-10 md:mb-16">
         <p class="section-label">Experience</p>
         <h2 class="section-title">Pengalaman Profesional</h2>
-        <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed px-4 md:px-0">
+        <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed px-4 md:px-0">
           Perjalanan dari dunia akademik hingga industri nyata — membangun keahlian lintas domain
           teknologi dan desain.
         </p>
@@ -230,23 +230,20 @@ const typeIcon: Record<string, string> = {
             class="md:col-start-3 md:row-start-1 md:flex md:items-start"
             :class="i % 2 === 0 ? 'md:pl-10 md:pt-1' : 'md:pl-10'"
           >
-            <!-- Mobile: always show the card -->
-            <div class="md:hidden w-full">
-              <article
-                class="rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 cursor-default"
-                style="
-                  background: rgba(11,17,32,0.80);
-                  border: 1px solid rgba(255,255,255,0.09);
-                  backdrop-filter: blur(14px);
-                "
-                @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
-                @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow='none'"
-              >
+          <!-- Mobile: always show the card -->
+          <div class="md:hidden w-full">
+            <article
+              class="rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 cursor-default
+                     bg-white border border-slate-200 shadow-sm
+                     dark:bg-[#0b1120]/80 dark:border-white/10 dark:shadow-none dark:backdrop-blur-md"
+              @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
+              @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow=''"
+            >
                 <div class="flex items-start justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
@@ -255,7 +252,7 @@ const typeIcon: Record<string, string> = {
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
                   >{{ badge[exp.type].label }}</span>
                 </div>
-                <p class="text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
                 <p class="text-[0.65rem] font-semibold tracking-wide mt-3" style="color:#38bdf8;">
                   {{ exp.date }}
                 </p>
@@ -274,20 +271,17 @@ const typeIcon: Record<string, string> = {
             <template v-else>
               <article
                 class="hidden md:block w-full max-w-sm rounded-2xl p-5 transition-all duration-300
-                       hover:-translate-y-1 cursor-default"
-                style="
-                  background: rgba(11,17,32,0.80);
-                  border: 1px solid rgba(255,255,255,0.09);
-                  backdrop-filter: blur(14px);
-                "
+                       hover:-translate-y-1 cursor-default
+                       bg-white border border-slate-200 shadow-sm
+                       dark:bg-[#0b1120]/80 dark:border-white/10 dark:shadow-none dark:backdrop-blur-md"
                 @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
-                @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow='none'"
+                @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow=''"
               >
                 <div class="flex items-start justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
@@ -296,9 +290,10 @@ const typeIcon: Record<string, string> = {
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
                   >{{ badge[exp.type].label }}</span>
                 </div>
-                <p class="text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
               </article>
             </template>
+
           </div>
 
         </div>
