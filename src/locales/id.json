@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "services": "Layanan",
+    "experience": "Pengalaman",
+    "stack": "Teknologi",
+    "projects": "Proyek",
+    "awards": "Penghargaan",
+    "contact": "Kontak",
+    "resume": "Resume"
+  },
+  "hero": {
+    "badge": "Tersedia untuk Kerja · Portofolio 2026",
+    "greeting": "adalah seorang",
+    "bio": "Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX, dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi dari tahap konseptual hingga eksekusi visual.",
+    "cta_cv": "Unduh CV",
+    "cta_work": "Lihat Proyek",
+    "cta_hire": "Hire Me",
+    "scroll": "Gulir",
+    "stats": {
+      "projects": "Proyek",
+      "awards": "Penghargaan",
+      "internships": "Magang",
+      "years": "Tahun Belajar"
+    }
+  }
+}

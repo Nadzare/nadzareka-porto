@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "experience": "Experience",
+    "stack": "Stack",
+    "projects": "Projects",
+    "awards": "Awards",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "badge": "Available for Work · Portfolio 2026",
+    "greeting": "is a",
+    "bio": "Active Informatics student focusing on information system development, UI/UX design, and digital strategies. Experienced in designing solutions from the conceptual stage through to visual execution.",
+    "cta_cv": "Download CV",
+    "cta_work": "See My Work",
+    "cta_hire": "Hire Me",
+    "scroll": "Scroll",
+    "stats": {
+      "projects": "Projects",
+      "awards": "Awards",
+      "internships": "Internships",
+      "years": "Years Learning"
+    }
+  }
+}
