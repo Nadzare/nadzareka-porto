@@ -45,13 +45,13 @@ import ServicesSection from './components/ServicesSection.vue'
     <HeroSection />
 
     <!-- ── Sections (each is full-width, self-contained) ── -->
-    <AboutSection />
-    <ServicesSection />
-    <ExperienceTimeline />
-    <TechStackSection />
-    <ProjectsSection />
-    <CertificatesSection />
-    <ContactSection />
+    <AboutSection      id="about" />
+    <ServicesSection   id="services" />
+    <ExperienceTimeline id="experience" />
+    <TechStackSection  id="stack" />
+    <ProjectsSection   id="projects" />
+    <CertificatesSection id="certificates" />
+    <ContactSection    id="contact" />
 
     <!-- ── Footer ── -->
     <FooterSection />
