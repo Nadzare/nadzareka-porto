@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useTheme } from '../composables/useTheme'
 import { useI18n } from 'vue-i18n'
+import cvPdf from '@/assets/cv-kafah.pdf'
 
 const { t, locale } = useI18n()
 
@@ -113,7 +114,7 @@ function scrollToTop(e: MouseEvent) {
       <div class="nav-divider" aria-hidden="true"></div>
 
       <!-- Resume CTA -->
-      <a href="/resume.pdf" download class="resume-btn">
+      <a :href="cvPdf" download="CV_Nadzare_Kafah.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">
         <!-- Download icon -->
         <svg
           class="w-3 h-3 flex-shrink-0"
@@ -228,7 +229,7 @@ function scrollToTop(e: MouseEvent) {
         <div class="mobile-divider"></div>
 
         <!-- Resume -->
-        <a href="/resume.pdf" download class="mobile-resume" @click="mobileOpen = false">
+        <a :href="cvPdf" download="CV_Nadzare_Kafah.pdf" target="_blank" rel="noopener noreferrer" class="mobile-resume" @click="mobileOpen = false">
           <svg
             class="w-4 h-4 flex-shrink-0"
             viewBox="0 0 24 24"

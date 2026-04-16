@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import cvPdf from '@/assets/cv-kafah.pdf'
 
 const { t } = useI18n()
 
@@ -156,7 +157,7 @@ const stats = [
 
           <!-- CTA Buttons -->
           <div class="flex flex-wrap gap-3">
-            <a href="/resume.pdf" download class="btn-primary">
+            <a :href="cvPdf" download="CV_Nadzare_Kafah.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-4 h-4"
