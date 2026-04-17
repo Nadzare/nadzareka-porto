@@ -127,7 +127,7 @@ const socials = [
               target="_blank"
               rel="noopener noreferrer"
               :aria-label="s.label"
-              class="social-row"
+              class="social-row bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-600 border border-slate-200 dark:bg-[#0b1120]/50 dark:border-white/10 dark:text-[#94a3b8] dark:hover:text-[var(--sc,#38bdf8)] dark:hover:bg-[color-mix(in_srgb,var(--sc)_10%,rgba(11,17,32,.55))] dark:hover:border-[color-mix(in_srgb,var(--sc)_38%,transparent)]"
               :style="{ '--sc': s.color } as any"
             >
               <!-- icon wrapper -->
@@ -150,7 +150,7 @@ const socials = [
           <!-- glass shine -->
           <div class="box-shine" aria-hidden="true"></div>
 
-          <h3 class="form-card-title">Send a Message</h3>
+          <h3 class="form-card-title text-slate-900 dark:text-[#f1f5f9]">Send a Message</h3>
 
           <!--
             Web3Forms:
@@ -209,11 +209,11 @@ const socials = [
             <button
               type="submit"
               :disabled="status === 'sending'"
-              class="send-btn"
+              class="send-btn bg-blue-600 text-white hover:bg-blue-700 w-full rounded-xl py-3 font-medium transition-colors dark:bg-white/5 dark:border-white/20 dark:text-[#e2e8f0]"
               :class="{ 'send-btn--sending': status === 'sending' }"
             >
               <!-- idle -->
-              <div v-if="status === 'idle'" class="flex items-center justify-center gap-2 py-3 px-6">
+              <div v-if="status === 'idle'" class="flex items-center justify-center gap-2 px-6">
                 <span>Send Message</span>
                 <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
@@ -221,7 +221,7 @@ const socials = [
               </div>
 
               <!-- sending -->
-              <div v-else-if="status === 'sending'" class="flex items-center justify-center gap-2 py-3 px-6">
+              <div v-else-if="status === 'sending'" class="flex items-center justify-center gap-2 px-6">
                 <svg class="send-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
                   <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
@@ -230,12 +230,12 @@ const socials = [
               </div>
 
               <!-- success -->
-              <div v-else-if="status === 'success'" class="flex items-center justify-center gap-2 py-3 px-6">
+              <div v-else-if="status === 'success'" class="flex items-center justify-center gap-2 px-6">
                 <span>✅ Message sent!</span>
               </div>
 
               <!-- error -->
-              <div v-else class="flex items-center justify-center gap-2 py-3 px-6">
+              <div v-else class="flex items-center justify-center gap-2 px-6">
                 <span>❌ Something went wrong. Try again.</span>
               </div>
             </button>
@@ -373,9 +373,6 @@ const socials = [
   gap: 0.75rem;
   padding: 0.65rem 0.875rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(255,255,255,.07);
-  background: rgba(11,17,32,.50);
-  color: #94a3b8;
   text-decoration: none;
   transition:
     color 240ms ease,
@@ -385,9 +382,9 @@ const socials = [
     box-shadow 240ms ease;
 }
 .social-row:hover {
-  color: var(--sc, #38bdf8);
-  border-color: color-mix(in srgb, var(--sc, #38bdf8) 38%, transparent);
-  background: color-mix(in srgb, var(--sc, #38bdf8) 10%, rgba(11,17,32,.55));
+  transform: translateX(3px);
+}
+:global(.dark) .social-row:hover {
   transform: translateX(3px);
   box-shadow: 0 4px 20px color-mix(in srgb, var(--sc, #38bdf8) 18%, transparent);
 }
@@ -438,7 +435,6 @@ const socials = [
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #f1f5f9;
   margin: 0 0 1.5rem;
 }
 
@@ -505,18 +501,12 @@ textarea:-webkit-autofill:focus {
    icon and text are always perfectly centred.
    ────────────────────────────────────────────── */
 .send-btn {
-  width: 100%;
-  border-radius: 9999px;               /* pill */
-  border: 1px solid rgba(255,255,255,.20);
-  background: rgba(255,255,255,.04);
-  color: #e2e8f0;
   font-size: 0.9rem;
   font-weight: 700;
   font-family: inherit;
   letter-spacing: 0.04em;
   cursor: pointer;
   margin-top: 0.25rem;
-  padding: 0;                          /* padding lives on the inner div */
   line-height: 1;                      /* reset browser default line-height */
   transition:
     background 280ms ease,
@@ -526,6 +516,10 @@ textarea:-webkit-autofill:focus {
     box-shadow 280ms ease;
 }
 .send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.15), 0 4px 12px rgba(0,0,0,.10);
+}
+:global(.dark) .send-btn:hover:not(:disabled) {
   background: #3b82f6;
   border-color: #60a5fa;
   color: #fff;

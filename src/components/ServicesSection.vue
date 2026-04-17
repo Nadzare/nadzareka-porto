@@ -114,7 +114,7 @@ onMounted(() => {
           <!-- ── CTA — pushed to bottom with mt-auto ── -->
           <div class="srv-cta">
             <div class="srv-cta-divider"></div>
-            <a href="#contact" class="srv-cta-link">
+            <a href="#contact" class="srv-cta-link text-slate-600 hover:text-blue-600 dark:text-slate-500">
               <span>Diskusikan Proyek</span>
               <svg class="srv-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 8h10M9 4l4 4-4 4"/>
@@ -222,14 +222,21 @@ onMounted(() => {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 0.875rem;
-  border: 1px solid color-mix(in srgb, var(--srv-color, #38bdf8) 30%, transparent);
-  background: color-mix(in srgb, var(--srv-color, #38bdf8) 12%, rgba(11, 17, 32, .70));
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
   flex-shrink: 0;
   transition: border-color 300ms ease, background 300ms ease, transform 300ms ease;
 }
+:global(.dark) .srv-icon-wrap {
+  border-color: color-mix(in srgb, var(--srv-color, #38bdf8) 30%, transparent);
+  background: color-mix(in srgb, var(--srv-color, #38bdf8) 12%, rgba(11, 17, 32, .70));
+}
 .srv-card:hover .srv-icon-wrap {
-  background: color-mix(in srgb, var(--srv-color, #38bdf8) 20%, rgba(11, 17, 32, .65));
+  background: #e2e8f0;
   transform: scale(1.08) rotate(-3deg);
+}
+:global(.dark) .srv-card:hover .srv-icon-wrap {
+  background: color-mix(in srgb, var(--srv-color, #38bdf8) 20%, rgba(11, 17, 32, .65));
 }
 
 /* Icon — FontAwesome i-tag, sized with font-size */
@@ -292,14 +299,17 @@ onMounted(() => {
   gap: 0.4rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #64748b;
   text-decoration: none;
   transition: color 220ms ease, gap 220ms ease;
 }
 .srv-cta-link:hover,
 .srv-card:hover .srv-cta-link {
-  color: var(--srv-color, #38bdf8);
+  color: #2563eb; /* text-blue-600 */
   gap: 0.6rem;
+}
+:global(.dark) .srv-cta-link:hover,
+:global(.dark) .srv-card:hover .srv-cta-link {
+  color: var(--srv-color, #38bdf8);
 }
 
 .srv-cta-arrow {

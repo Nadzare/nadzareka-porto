@@ -55,13 +55,13 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="relative border-t border-slate-200 dark:border-white/10 bg-slate-900 overflow-hidden">
+  <footer class="relative border-t bg-slate-50 border-slate-200 text-slate-900 dark:bg-slate-900 dark:border-white/10 dark:text-white overflow-hidden">
 
     <!-- Subtle top glow line -->
     <div class="footer-glow-line" aria-hidden="true"></div>
 
     <!-- Deep dark background -->
-    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="footer-bg hidden dark:block" aria-hidden="true"></div>
 
     <div class="footer-container">
 
@@ -75,7 +75,7 @@ const year = new Date().getFullYear()
         ──────────────────────────────────────────── -->
         <div class="brand-col">
           <!-- Logotype -->
-          <a href="#" class="brand-logo" aria-label="Back to top">
+          <a href="#" class="brand-logo text-slate-900 dark:text-[#f1f5f9]" aria-label="Back to top">
             NK<span class="brand-dot">.</span>
           </a>
 
@@ -247,7 +247,6 @@ footer {
   font-family: 'Outfit', sans-serif;
   font-size: 2rem;
   font-weight: 900;
-  color: #f1f5f9;
   letter-spacing: -0.03em;
   text-decoration: none;
   line-height: 1;

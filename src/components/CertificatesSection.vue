@@ -334,7 +334,7 @@ onMounted(() => {
               </template>
 
               <!-- ═══ TEXT BODY ═══ -->
-              <div class="card-body">
+              <div class="card-body bg-white border-t border-slate-200 shadow-sm dark:bg-[rgba(11,17,32,.82)] dark:border-white/10 dark:shadow-none">
                 <span
                   class="card-eyebrow"
                   :style="{
@@ -351,8 +351,8 @@ onMounted(() => {
                         : 'Bootcamp & Course'
                   }}
                 </span>
-                <h3 class="card-title">{{ item.title }}</h3>
-                <p class="card-institution">
+                <h3 class="card-title text-slate-900 dark:text-[#f1f5f9]">{{ item.title }}</h3>
+                <p class="card-institution text-slate-600 dark:text-[#64748b]">
                   {{
                     activeTab === 'awards'
                       ? (item as AwardItem).institution
@@ -690,7 +690,6 @@ onMounted(() => {
    ────────────────────────────────────────────── */
 .card-body {
   padding: 1rem 1.25rem 1.25rem;
-  background: rgba(11,17,32,.82);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -708,7 +707,6 @@ onMounted(() => {
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: 1rem;
   font-weight: 800;
-  color: #f1f5f9;
   line-height: 1.3;
   margin: 0;
 }

@@ -86,9 +86,9 @@ function scrollToTop(e: MouseEvent) {
     <!-- ══════════════════════════════════════════
          FLOATING PILL NAVBAR
     ══════════════════════════════════════════ -->
-    <nav class="navbar-pill" :class="{ 'navbar-pill--scrolled': scrolled }">
+    <nav class="navbar-pill bg-white/80 backdrop-blur-xl border border-slate-200 dark:bg-[rgba(7,11,21,0.84)] dark:border-white/10 dark:text-white" :class="{ 'navbar-pill--scrolled': scrolled }">
       <!-- Logo -->
-      <a href="#" class="nav-logo" @click="scrollToTop"> NK<span class="nav-logo-dot">.</span> </a>
+      <a href="#" class="nav-logo text-slate-900 dark:text-[#f1f5f9]" @click="scrollToTop"> NK<span class="nav-logo-dot">.</span> </a>
 
       <!-- ── Desktop links (hidden on mobile) ── -->
       <div class="nav-links-desktop">
@@ -260,8 +260,6 @@ function scrollToTop(e: MouseEvent) {
   gap: 0.375rem;
   padding: 0.5rem 0.875rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(7, 11, 21, 0.84);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition:
@@ -280,7 +278,6 @@ function scrollToTop(e: MouseEvent) {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
   font-size: 1.1rem;
-  color: #f1f5f9;
   letter-spacing: -0.02em;
   text-decoration: none;
   flex-shrink: 0;

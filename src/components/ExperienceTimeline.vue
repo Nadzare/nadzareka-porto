@@ -133,7 +133,7 @@ const typeIcon: Record<string, string> = {
           class="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 z-0 rounded-full overflow-hidden"
         >
           <!-- Track -->
-          <div class="absolute inset-0 bg-white/8 rounded-full"></div>
+          <div class="absolute inset-0 bg-slate-200 dark:bg-white/10 rounded-full"></div>
           <!-- Animated fill -->
           <div
             class="absolute top-0 left-0 w-full rounded-full transition-[height] duration-200 ease-out"
@@ -158,10 +158,10 @@ const typeIcon: Record<string, string> = {
           <!-- ── Mobile dot (absolute, hidden md+) ── -->
           <div
             class="md:hidden absolute left-5 top-7 -translate-x-1/2 z-10
-                   w-3.5 h-3.5 rounded-full border-2 transition-all duration-500"
+                   w-3.5 h-3.5 rounded-full border-4 transition-all duration-500 bg-white border-blue-500 dark:bg-[#0B1120] dark:border-blue-400"
             :style="isDotActive(i)
               ? 'background:#38bdf8; border-color:#38bdf8; box-shadow:0 0 14px rgba(56,189,248,0.85);'
-              : 'background:#0b1120; border-color:rgba(255,255,255,0.20);'"
+              : ''"
           ></div>
 
           <!-- ── Desktop LEFT column ── -->
@@ -175,12 +175,9 @@ const typeIcon: Record<string, string> = {
             <template v-if="i % 2 === 0">
               <article
                 class="w-full max-w-sm rounded-2xl p-5 transition-all duration-300
-                       hover:-translate-y-1 cursor-default"
-                style="
-                  background: rgba(11,17,32,0.80);
-                  border: 1px solid rgba(255,255,255,0.09);
-                  backdrop-filter: blur(14px);
-                "
+                       hover:-translate-y-1 cursor-default
+                       bg-white border border-slate-200 shadow-sm
+                       dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
                 @mouseover="($event.currentTarget as HTMLElement).style.boxShadow='0 0 24px rgba(56,189,248,0.16)'"
                 @mouseleave="($event.currentTarget as HTMLElement).style.boxShadow='none'"
               >
@@ -188,7 +185,7 @@ const typeIcon: Record<string, string> = {
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
@@ -197,7 +194,7 @@ const typeIcon: Record<string, string> = {
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
                   >{{ badge[exp.type].label }}</span>
                 </div>
-                <p class="text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
               </article>
             </template>
 
@@ -216,10 +213,10 @@ const typeIcon: Record<string, string> = {
                    md:col-start-2 md:row-start-1 z-10"
           >
             <div
-              class="w-4 h-4 rounded-full border-2 transition-all duration-500 shrink-0"
+              class="w-4 h-4 rounded-full border-4 transition-all duration-500 shrink-0 bg-white border-blue-500 dark:bg-[#0B1120] dark:border-blue-400"
               :style="isDotActive(i)
                 ? 'background:#38bdf8; border-color:#7dd3fc; box-shadow:0 0 18px rgba(56,189,248,0.85);'
-                : 'background:#0b1120; border-color:rgba(255,255,255,0.20);'"
+                : ''"
             ></div>
           </div>
 

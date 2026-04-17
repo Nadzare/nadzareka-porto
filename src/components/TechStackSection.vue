@@ -156,8 +156,8 @@ function onCardLeave(event: MouseEvent) {
 
           <!-- Category label -->
           <p
-            class="bento-label"
-            :style="{ color: category.accentColor }"
+            class="bento-label text-slate-800 dark:text-[var(--accent-color)]"
+            :style="{ '--accent-color': category.accentColor }"
           >
             {{ category.title }}
           </p>
@@ -167,7 +167,7 @@ function onCardLeave(event: MouseEvent) {
             <div
               v-for="(skill, si) in category.skills"
               :key="skill.name"
-              class="skill-chip"
+              class="skill-chip bg-white border border-slate-200 shadow-sm dark:bg-[rgba(7,11,21,0.55)] dark:border-[rgba(255,255,255,0.07)] dark:shadow-none"
               :style="{ transitionDelay: `${si * 40}ms` }"
             >
               <img
@@ -320,8 +320,6 @@ function onCardLeave(event: MouseEvent) {
   padding: 0.75rem 0.625rem;
   min-width: 70px;
   border-radius: 0.875rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(7, 11, 21, 0.55);
   backdrop-filter: blur(8px);
   transition:
     transform 220ms ease,
@@ -333,6 +331,12 @@ function onCardLeave(event: MouseEvent) {
 
 .skill-chip:hover {
   transform: translateY(-4px) scale(1.06);
+  border-color: rgba(0, 0, 0, 0.1);
+  background: #f8fafc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .skill-chip:hover {
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
