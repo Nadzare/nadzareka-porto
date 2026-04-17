@@ -29,11 +29,25 @@ const mouseY    = ref(0)
 const trailingX = ref(0)
 const trailingY = ref(0)
 
+// Internal state to track screen-relative mouse to update absolute coords during scroll
+const clientX = ref(0)
+const clientY = ref(0)
+
 let rafId: number
 
 function onMouseMove(e: MouseEvent) {
-  mouseX.value = e.clientX
-  mouseY.value = e.clientY
+  clientX.value = e.clientX
+  clientY.value = e.clientY
+  mouseX.value = clientX.value + window.scrollX
+  mouseY.value = clientY.value + window.scrollY
+}
+
+function handleScroll() {
+  // Update scroll progress
+  calculateScrollProgress()
+  // Keep absolute cursor pinned to screen coordinates even when scrolling
+  mouseX.value = clientX.value + window.scrollX
+  mouseY.value = clientY.value + window.scrollY
 }
 
 function animateCursor() {
@@ -47,13 +61,22 @@ const { init } = useTheme()
 
 onMounted(() => {
   init()                        // Apply theme before first paint
-  window.addEventListener('scroll',    calculateScrollProgress, { passive: true })
+  window.addEventListener('scroll',    handleScroll, { passive: true })
   window.addEventListener('mousemove', onMouseMove,             { passive: true })
+  
+  // Set initial mouse position center screen to prevent snap from 0,0
+  clientX.value = window.innerWidth / 2
+  clientY.value = window.innerHeight / 2
+  mouseX.value = clientX.value + window.scrollX
+  mouseY.value = clientY.value + window.scrollY
+  trailingX.value = mouseX.value
+  trailingY.value = mouseY.value
+
   rafId = requestAnimationFrame(animateCursor)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll',    calculateScrollProgress)
+  window.removeEventListener('scroll',    handleScroll)
   window.removeEventListener('mousemove', onMouseMove)
   cancelAnimationFrame(rafId)
 })
@@ -63,25 +86,9 @@ onUnmounted(() => {
   <!-- ── Preloader (first-visit only, skipped via sessionStorage) ── -->
   <Preloader />
 
-  <!-- ── Custom Cursor: Dot (snaps to exact mouse position) ── -->
-  <div
-    class="fixed w-2 h-2 bg-white rounded-full pointer-events-none z-[99999] -translate-x-1/2 -translate-y-1/2"
-    :style="{ left: mouseX + 'px', top: mouseY + 'px' }"
-  />
+  <!-- Cursors moved to end of template -->
 
-  <!-- ── Custom Cursor: Ring (trails behind with lerp smoothing) ── -->
-  <div
-    class="fixed w-10 h-10 rounded-full pointer-events-none z-[99998] -translate-x-1/2 -translate-y-1/2 border border-white/30 shadow-[0_0_8px_rgba(56,189,248,0.25)]"
-    :style="{ left: trailingX + 'px', top: trailingY + 'px' }"
-  />
-
-  <!-- ── Scroll Progress Bar ── -->
-  <div
-    class="fixed top-0 left-0 h-1 bg-blue-500 z-[9999] transition-all duration-75 ease-out shadow-[0_0_10px_rgba(56,189,248,0.8)]"
-    :style="{ width: scrollProgress + '%' }"
-  />
-
-  <div class="relative min-h-screen overflow-x-hidden bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <div class="relative min-h-screen bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
     <!-- ── Animated background layer ── -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -125,12 +132,32 @@ onUnmounted(() => {
     <!-- ── Footer ── -->
     <FooterSection />
   </div>
+
+  <Teleport to="body">
+    <!-- ── Custom Cursor: Dot (snaps to exact mouse position) ── -->
+    <div
+      class="absolute w-2 h-2 bg-blue-500 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(59,130,246,0.8)] mix-blend-difference"
+      :style="{ left: mouseX + 'px', top: mouseY + 'px', zIndex: 2147483647 }"
+    ></div>
+
+    <!-- ── Custom Cursor: Ring (trails behind with lerp smoothing) ── -->
+    <div
+      class="absolute w-10 h-10 border-2 border-blue-400/80 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out shadow-[0_0_15px_rgba(59,130,246,0.3)] mix-blend-difference"
+      :style="{ left: trailingX + 'px', top: trailingY + 'px', zIndex: 2147483646 }"
+    ></div>
+
+    <!-- ── Scroll Progress Bar ── -->
+    <div
+      class="fixed top-0 left-0 h-1 bg-blue-500 transition-all duration-75 ease-out shadow-[0_0_10px_rgba(56,189,248,0.8)]"
+      :style="{ width: scrollProgress + '%', zIndex: 2147483647 }"
+    ></div>
+  </Teleport>
 </template>
 
-<!-- Hide native cursor only on devices with a precise pointer (mouse/trackpad) -->
 <style>
+/* Hide default cursor globally for fine pointers */
 @media (pointer: fine) {
-  body, a, button, [role="button"] {
+  * {
     cursor: none !important;
   }
 }

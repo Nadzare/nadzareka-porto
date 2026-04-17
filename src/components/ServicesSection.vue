@@ -93,7 +93,7 @@ onMounted(() => {
           v-for="(service, i) in services"
           :key="service.title"
           :ref="(el) => { if (el) cardRefs[i] = el as HTMLElement }"
-          class="srv-card fade-in-up bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
+          class="srv-card group fade-in-up bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none"
           :class="`delay-${Math.min((i + 1) * 100, 600)}`"
           :style="{ '--srv-color': service.accentColor } as any"
         >
@@ -101,20 +101,20 @@ onMounted(() => {
           <div class="srv-shine" aria-hidden="true"></div>
 
           <!-- ── Icon ── -->
-          <div class="srv-icon-wrap">
+          <div class="srv-icon-wrap bg-slate-100 border border-slate-200 group-hover:bg-slate-200 dark:bg-white/5 dark:border-white/10 dark:group-hover:bg-white/10">
             <i :class="service.fa" class="srv-icon" aria-hidden="true"></i>
           </div>
 
           <!-- ── Title ── -->
-          <h3 class="srv-title">{{ service.title }}</h3>
+          <h3 class="srv-title text-slate-800 dark:text-white">{{ service.title }}</h3>
 
           <!-- ── Description ── -->
-          <p class="srv-desc">{{ service.description }}</p>
+          <p class="srv-desc text-slate-600 dark:text-gray-400">{{ service.description }}</p>
 
           <!-- ── CTA — pushed to bottom with mt-auto ── -->
           <div class="srv-cta">
             <div class="srv-cta-divider"></div>
-            <a href="#contact" class="srv-cta-link text-slate-600 hover:text-blue-600 dark:text-slate-500">
+            <a href="#contact" class="srv-cta-link text-slate-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
               <span>Diskusikan Proyek</span>
               <svg class="srv-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 8h10M9 4l4 4-4 4"/>
@@ -222,21 +222,11 @@ onMounted(() => {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 0.875rem;
-  border: 1px solid #e2e8f0;
-  background: #f1f5f9;
   flex-shrink: 0;
   transition: border-color 300ms ease, background 300ms ease, transform 300ms ease;
 }
-:global(.dark) .srv-icon-wrap {
-  border-color: color-mix(in srgb, var(--srv-color, #38bdf8) 30%, transparent);
-  background: color-mix(in srgb, var(--srv-color, #38bdf8) 12%, rgba(11, 17, 32, .70));
-}
 .srv-card:hover .srv-icon-wrap {
-  background: #e2e8f0;
   transform: scale(1.08) rotate(-3deg);
-}
-:global(.dark) .srv-card:hover .srv-icon-wrap {
-  background: color-mix(in srgb, var(--srv-color, #38bdf8) 20%, rgba(11, 17, 32, .65));
 }
 
 /* Icon — FontAwesome i-tag, sized with font-size */
@@ -257,20 +247,16 @@ onMounted(() => {
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #1e293b;         /* light: slate-800 */
   margin: 1.375rem 0 0.625rem;
   line-height: 1.25;
 }
-:global(.dark) .srv-title { color: #f1f5f9; }
 
 .srv-desc {
   font-size: 0.875rem;
-  color: #475569;         /* light: slate-600 */
   line-height: 1.7;
   margin: 0;
   flex: 1;
 }
-:global(.dark) .srv-desc { color: #94a3b8; }
 
 /* ──────────────────────────────────────────────
    BOTTOM CTA

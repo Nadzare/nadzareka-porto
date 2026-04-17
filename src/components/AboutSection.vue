@@ -39,7 +39,7 @@ const highlights = [
           <div
             v-for="(item, i) in highlights"
             :key="item.label"
-            class="bg-white border border-slate-200 shadow-sm dark:glass-card rounded-2xl p-6 flex flex-col gap-3"
+            class="bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none rounded-2xl p-6 flex flex-col gap-3"
             :class="`delay-${(i + 1) * 100}`"
           >
             <!-- FontAwesome icon with per-card accent colour -->
@@ -53,7 +53,7 @@ const highlights = [
               <div class="font-display font-bold text-slate-900 dark:text-white text-lg" style="font-family: 'Outfit', sans-serif;">
                 {{ item.label }}
               </div>
-              <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">{{ item.sub }}</div>
+              <div class="text-xs text-slate-600 dark:text-gray-400 mt-0.5 leading-relaxed">{{ item.sub }}</div>
             </div>
           </div>
         </div>
