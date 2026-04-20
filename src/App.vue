@@ -88,6 +88,8 @@ onUnmounted(() => {
 
   <!-- Cursors moved to end of template -->
 
+  <NavbarSection />
+
   <div class="relative min-h-screen bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
     <!-- ── Animated background layer ── -->
@@ -113,9 +115,6 @@ onUnmounted(() => {
         style="animation: blob-drift-2 20s ease-in-out infinite; animation-delay: -4s;"
       ></div>
     </div>
-
-    <!-- ── Floating Navbar ── -->
-    <NavbarSection />
 
     <!-- ── Hero ── -->
     <HeroSection />

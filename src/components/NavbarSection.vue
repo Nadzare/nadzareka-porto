@@ -82,7 +82,7 @@ function scrollToTop(e: MouseEvent) {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
+  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 transform-gpu">
     <!-- ══════════════════════════════════════════
          FLOATING PILL NAVBAR
     ══════════════════════════════════════════ -->
@@ -269,8 +269,14 @@ function scrollToTop(e: MouseEvent) {
 .navbar-pill--scrolled {
   padding: 0.375rem 0.75rem;
   box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .navbar-pill--scrolled {
+  box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(56, 189, 248, 0.07);
+    0 0 0 1px rgba(56, 189, 248, 0.15);
 }
 
 /* ── Logo ── */
@@ -343,9 +349,12 @@ function scrollToTop(e: MouseEvent) {
   display: none;
   width: 1px;
   height: 1rem;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.1);
   margin: 0 0.25rem;
   flex-shrink: 0;
+}
+:global(.dark) .nav-divider {
+  background: rgba(255, 255, 255, 0.14);
 }
 @media (min-width: 768px) {
   .nav-divider {
@@ -398,10 +407,19 @@ function scrollToTop(e: MouseEvent) {
     background 200ms ease;
 }
 .hamburger:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.06);
+}
+.hamburger--open {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.12);
+}
+
+:global(.dark) .hamburger:hover {
   color: #f1f5f9;
   background: rgba(255, 255, 255, 0.06);
 }
-.hamburger--open {
+:global(.dark) .hamburger--open {
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.12);
 }
@@ -420,16 +438,22 @@ function scrollToTop(e: MouseEvent) {
   left: 1rem;
   right: 1rem;
   border-radius: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(7, 11, 21, 0.96);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
   transform-origin: top center;
+}
+
+:global(.dark) .mobile-menu {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(7, 11, 21, 0.96);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
 }
 
 .mobile-link {
@@ -440,17 +464,29 @@ function scrollToTop(e: MouseEvent) {
   border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #94a3b8;
+  color: #64748b;
   text-decoration: none;
   transition:
     color 200ms ease,
     background 200ms ease;
 }
 .mobile-link:hover {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.08);
+}
+.mobile-link--active {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.12);
+}
+
+:global(.dark) .mobile-link {
+  color: #94a3b8;
+}
+:global(.dark) .mobile-link:hover {
   color: #38bdf8;
   background: rgba(255, 255, 255, 0.05);
 }
-.mobile-link--active {
+:global(.dark) .mobile-link--active {
   color: #7dd3fc;
   background: rgba(56, 189, 248, 0.1);
 }
@@ -460,8 +496,11 @@ function scrollToTop(e: MouseEvent) {
   width: 5px;
   height: 5px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.15);
   transition: background 200ms ease;
+}
+:global(.dark) .mobile-link-dot {
+  background: rgba(255, 255, 255, 0.18);
 }
 .mobile-link--active .mobile-link-dot,
 .mobile-link:hover .mobile-link-dot {
@@ -470,8 +509,11 @@ function scrollToTop(e: MouseEvent) {
 
 .mobile-divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.08);
   margin: 0.25rem 0;
+}
+:global(.dark) .mobile-divider {
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .mobile-resume {
@@ -482,15 +524,25 @@ function scrollToTop(e: MouseEvent) {
   border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #7dd3fc;
+  color: #0284c7;
   text-decoration: none;
-  background: rgba(56, 189, 248, 0.09);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.2);
   transition:
     background 200ms ease,
     border-color 200ms ease;
 }
 .mobile-resume:hover {
+  background: rgba(14, 165, 233, 0.12);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+
+:global(.dark) .mobile-resume {
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.09);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+:global(.dark) .mobile-resume:hover {
   background: rgba(56, 189, 248, 0.16);
   border-color: rgba(56, 189, 248, 0.38);
 }
@@ -502,9 +554,9 @@ function scrollToTop(e: MouseEvent) {
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: transparent;
-  color: #94a3b8;
+  color: #64748b;
   cursor: pointer;
   flex-shrink: 0;
   transition:
@@ -518,6 +570,11 @@ function scrollToTop(e: MouseEvent) {
   background: rgba(245, 158, 11, 0.1);
   border-color: rgba(245, 158, 11, 0.3);
   transform: rotate(15deg);
+}
+
+:global(.dark) .theme-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
 }
 
 /* The inner span holds the icon — transitions its own opacity+rotate on change */
@@ -540,9 +597,12 @@ function scrollToTop(e: MouseEvent) {
   gap: 0.15rem;
   padding: 0.2rem 0.35rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(0, 0, 0, .08);
   background: transparent;
   flex-shrink: 0;
+}
+:global(.dark) .lang-toggle {
+  border: 1px solid rgba(255, 255, 255, .12);
 }
 .lang-btn {
   font-size: 0.62rem;
@@ -558,7 +618,14 @@ function scrollToTop(e: MouseEvent) {
   line-height: 1;
   font-family: inherit;
 }
+:global(.dark) .lang-btn {
+  color: #94a3b8;
+}
 .lang-btn--active {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.12);
+}
+:global(.dark) .lang-btn--active {
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.15);
 }

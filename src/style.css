@@ -53,6 +53,9 @@
 /* Smooth native scroll — enables scrollIntoView({ behavior:'smooth' }) site-wide */
 html {
   scroll-behavior: smooth;
+  transform: none !important;
+  perspective: none !important;
+  filter: none !important;
 }
 
 body {
@@ -63,6 +66,9 @@ body {
   color: #1e293b;              /* slate-800 — light mode default text */
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  transform: none !important;
+  perspective: none !important;
+  filter: none !important;
 }
 
 /* Dark mode body text */
