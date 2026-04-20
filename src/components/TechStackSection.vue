@@ -148,7 +148,7 @@ function onCardLeave(event: MouseEvent) {
       <div class="bento-grid">
         <div
           v-for="(category, ci) in techCategories"
-          :key="category.title"
+          :key="category.titleKey"
           :ref="(el) => { if (el) bentoRefs[ci] = el as HTMLElement }"
           :class="['bento-card bento-card-hover fade-in-up bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none', category.spanClass, `delay-${Math.min((ci + 1) * 100, 600)}`]"
           @mouseenter="onCardEnter($event, category.accentColor)"

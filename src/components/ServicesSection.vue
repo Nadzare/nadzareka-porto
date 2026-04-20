@@ -6,6 +6,7 @@ const { t } = useI18n()
 
 interface Service {
   title: string
+  key: string
   description: string
   accentColor: string
   fa: string   // FontAwesome class string e.g. 'fa-solid fa-code'
