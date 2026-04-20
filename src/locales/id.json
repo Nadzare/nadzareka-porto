@@ -23,5 +23,192 @@
       "internships": "Magang",
       "years": "Tahun Belajar"
     }
+  },
+  "about": {
+    "label": "Tentang Saya",
+    "title_start": "Membangun Solusi Digital yang ",
+    "title_highlight": "fungsional dan berdampak",
+    "title_end": "",
+    "desc_1": "Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX, dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi teknologi dari tahap konseptual hingga eksekusi visual, termasuk pembuatan aset grafis dan manajemen media sosial.",
+    "desc_2": "Pribadi yang analitis, inovatif, dan siap berkolaborasi dalam tim untuk menciptakan produk digital yang berdampak nyata. Passionate tentang intersection of design and engineering — membuat hal yang indah sekaligus berfungsi dengan baik.",
+    "status": "Terbuka untuk peluang",
+    "location": "Berbasis di Purwokerto, Indonesia",
+    "cta": "Lihat Proyek →",
+    "highlights": {
+      "informatics": "Informatika",
+      "unsoed": "Universitas Jenderal Soedirman",
+      "awards": "7 Penghargaan",
+      "awards_sub": "Kompetisi Nasional & Regional",
+      "interns": "2 Magang",
+      "interns_sub": "PT Starindo & PT Cazh",
+      "projects": "8+ Proyek",
+      "projects_sub": "Web, Mobile & Desain"
+    }
+  },
+  "services": {
+    "label": "Apa Yang Saya Tawarkan",
+    "title_start": "Layanan ",
+    "title_highlight": "Saya",
+    "desc": "Solusi digital end-to-end — dari konsep hingga produk yang siap digunakan.",
+    "cta": "Diskusikan Proyek",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "desc": "Pembuatan website performa tinggi yang responsif, SEO-friendly, dan scalable menggunakan tech-stack modern terkini."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "desc": "Pembangunan aplikasi mobile cross-platform yang mulus dan interaktif untuk ekosistem iOS maupun Android."
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "desc": "Perancangan antarmuka yang intuitif, estetik, dan sangat berfokus pada kenyamanan pengalaman interaksi pengguna."
+      },
+      "consultant": {
+        "title": "IT Consultant",
+        "desc": "Layanan konsultasi arsitektur sistem, pemilihan tech-stack, dan eskalasi efisiensi bisnis digital untuk UMKM dan rintisan."
+      },
+      "graphic": {
+        "title": "Graphic Design",
+        "desc": "Pembuatan aset visual kreatif, branding identitas, dan materi pemasaran yang menarik serta profesional."
+      },
+      "social": {
+        "title": "Social Media Management",
+        "desc": "Perancangan strategi konten, produksi aset visual, hingga optimasi kampanye digital untuk meningkatkan engagement."
+      }
+    }
+  },
+  "experience": {
+    "label": "Pengalaman",
+    "title": "Pengalaman Profesional",
+    "desc": "Perjalanan dari dunia akademik hingga industri nyata — membangun keahlian lintas domain teknologi dan desain.",
+    "badges": {
+      "academic": "Akademik",
+      "internship": "Magang",
+      "organization": "Organisasi"
+    },
+    "items": {
+      "asisten_web": {
+        "role": "Asisten Praktikum Pemrograman Website",
+        "desc": "Membimbing mahasiswa dalam praktik pengembangan website, membantu troubleshooting kode, dan menilai tugas."
+      },
+      "asisten_os": {
+        "role": "Asisten Praktikum Sistem Operasi",
+        "desc": "Memandu jalannya praktikum, menjelaskan konsep dasar sistem operasi, dan mengevaluasi hasil praktik mahasiswa."
+      },
+      "it_support": {
+        "role": "IT Support Technician (Internship)",
+        "desc": "Memberikan dukungan teknis untuk optimalisasi dan pemeliharaan perangkat keras serta lunak perusahaan."
+      },
+      "uid": {
+        "role": "User Interface Designer (Internship)",
+        "desc": "Merancang antarmuka (UI) dan prototipe aplikasi mobile secara kolaboratif menggunakan perangkat lunak Figma."
+      },
+      "content": {
+        "role": "Content Creator (Internship)",
+        "desc": "Merancang strategi, memproduksi konten, serta mengelola dan menganalisis kinerja publikasi media sosial."
+      },
+      "medkominfo": {
+        "role": "Ketua Divisi Medkominfo",
+        "desc": "Memimpin dan mengelola seluruh agenda kerja divisi Medkominfo, termasuk pengelolaan dan optimasi media sosial."
+      }
+    }
+  },
+  "stack": {
+    "label": "Tech Stack",
+    "title": "Keahlian & Tools",
+    "desc": "Teknologi yang saya gunakan untuk membangun product — dari frontend hingga mobile.",
+    "categories": {
+      "web": "Web & Frameworks",
+      "languages": "Languages",
+      "mobile": "Mobile",
+      "database": "Databases & Backend",
+      "design": "Design & Creative",
+      "tools": "Tools & Platforms"
+    }
+  },
+  "projects": {
+    "label": "Portofolio",
+    "title_start": "Pameran ",
+    "title_highlight": "Proyek",
+    "desc": "Koleksi proyek yang dibangun dengan passion — dari hackathon hingga produk nyata.",
+    "categories": {
+      "all": "Semua",
+      "web": "Web Development",
+      "mobile": "Mobile Development",
+      "uiux": "UI/UX Design",
+      "graphic": "Graphic Design"
+    },
+    "empty": "Belum ada proyek dalam kategori ini.",
+    "coming_soon": "Akan Datang",
+    "items": {
+      "larasena": { "title": "Larasena", "desc": "Aplikasi Terintegrasi Peta Leaflet JS dan Fitur Generate AI Batik." },
+      "menaspro": { "title": "Menaspro", "desc": "Aplikasi Analisis Data Mahasiswa menggunakan algoritma K-Means Clustering." },
+      "warungorange": { "title": "Warung Orange", "desc": "Marketplace Interaktif UMKM dengan Sistem Pembayaran Midtrans." },
+      "facetend": { "title": "Facetend", "desc": "Sistem Absensi Karyawan menggunakan Face Recognition API dan Validasi Geolokasi." },
+      "warungin": { "title": "Warungin", "desc": "Digitalisasi UMKM dengan Integrasi Pembayaran Midtrans dan Aplikasi Flutter." },
+      "tiketing": { "title": "Tiketing System", "desc": "Platform Manajemen Tiket dan Reservasi Event Terintegrasi." },
+      "poscafe": { "title": "Poscafe", "desc": "Sistem Kasir Digital Terintegrasi untuk Manajemen Bisnis Kuliner." },
+      "design_portfolio": { "title": "UI/UX & Graphic Design", "desc": "Portofolio desain sedang dalam proses kurasi dan akan segera hadir." }
+    }
+  },
+  "certificates": {
+    "label": "Pencapaian",
+    "title_start": "Sertifikat & ",
+    "title_highlight": "Prestasi",
+    "desc": "Pencapaian dari berbagai kompetisi nasional, organisasi, dan program pelatihan.",
+    "tabs": {
+      "awards": "Penghargaan & Kejuaraan",
+      "organization": "Kepanitiaan & Volunteer",
+      "course": "Bootcamp & Course"
+    },
+    "items": {
+      "gemastik": { "title": "FINALIS GEMASTIK XVIII 2025", "institution": "Dikti - Divisi VIII Software Development", "badge": "Finalis" },
+      "hackathon": { "title": "JUARA III Hackathon", "institution": "National IT Roll Out HMTI UMP 2025", "badge": "Juara III" },
+      "essay": { "title": "TOP 5 FINALIS Essay Competition", "institution": "Society of Renewable Energy ITB 2025", "badge": "Top 5" },
+      "webdesign": { "title": "JUARA II Web Design Competition", "institution": "Evolution Interium Fest - Telkom University 2024", "badge": "Juara II" },
+      "pkm": { "title": "JUARA II PKM Rektor Cup XI", "institution": "Bidang PKM-PI - Universitas Jenderal Soedirman 2024", "badge": "Juara II" },
+      "carnival": { "title": "FINALIS Web Design Competition", "institution": "Carnival Technology - Universitas Jember", "badge": "Finalis" },
+      "discovery": { "title": "JUARA III Discovery IT", "institution": "Inovasi Terapan - Universitas Negeri Jakarta", "badge": "Juara III" },
+      "org_ketua": { "title": "Ketua Divisi Medkominfo", "sub": "HMIF UNSOED 2025" },
+      "org_pdd_maskrab": { "title": "Kadiv PDD Maskrab Informatika", "sub": "Maskrab Informatika 2025" },
+      "org_pdd_tech": { "title": "Staf PDD Soedirman Technophoria", "sub": "Soedirman Technophoria 2025" },
+      "org_webinar": { "title": "Panitia Webinar Nasional", "sub": "Divisi Publikasi & Dokumentasi" },
+      "org_fest": { "title": "Koordinator Acara Informatika Fest", "sub": "HMIF UNSOED 2024" },
+      "crs_alibaba": { "title": "Alibaba Cloud Certified Developer", "sub": "Alibaba Cloud Academy" },
+      "crs_fullstack": { "title": "Fullstack Web Developer Bootcamp", "sub": "Codepolitan" },
+      "crs_uiux": { "title": "Pelatihan UI/UX Design", "sub": "Program Intensif" },
+      "crs_backend": { "title": "Belajar Membuat Aplikasi Back-End", "sub": "Dicoding Indonesia" },
+      "crs_flutter": { "title": "Flutter Mobile Development", "sub": "Google x Dicoding" }
+    }
+  },
+  "contact": {
+    "label": "Mari Terhubung",
+    "title_start": "Mari ",
+    "title_highlight": "Terhubung",
+    "desc": "Ada proyek, pertanyaan, atau sekadar ingin menyapa? Kotak masuk saya selalu terbuka.",
+    "find_me": "Temukan saya di",
+    "form": {
+      "title": "Kirim Pesan",
+      "name": "Nama",
+      "name_ph": "Nama Anda ...",
+      "email": "Email",
+      "email_ph": "Email Anda ...",
+      "message": "Pesan",
+      "message_ph": "Pesan Anda ...",
+      "btn_send": "Kirim Pesan",
+      "btn_sending": "Mengirim...",
+      "btn_success": "✅ Pesan terkirim!",
+      "btn_error": "❌ Terjadi kesalahan. Coba lagi."
+    }
+  },
+  "footer": {
+    "desc": "Membangun produk digital yang fungsional, indah, dan berdampak — satu baris kode demi satu.",
+    "nav_title": "Navigasi",
+    "contact_title": "Kontak",
+    "rights": "Hak cipta dilindungi.",
+    "built_with": "Dibuat dengan",
+    "back_to_top": "Kembali ke Atas",
+    "location": "Banyumas, Jawa Tengah"
   }
 }

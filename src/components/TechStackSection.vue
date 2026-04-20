@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // ──────────────────────────────────────────────
 // NOTE: Make sure you have this in your index.html <head>:
@@ -13,7 +16,7 @@ interface Skill {
 }
 
 interface TechCategory {
-  title: string
+  titleKey: string
   spanClass: string
   accentColor: string    // used for the glow & label colour
   skills: Skill[]
@@ -21,7 +24,7 @@ interface TechCategory {
 
 const techCategories: TechCategory[] = [
   {
-    title: 'Web & Frameworks',
+    titleKey: 'stack.categories.web',
     spanClass: 'md:col-span-2 lg:col-span-2 bento-row-2',
     accentColor: '#38bdf8',
     skills: [
@@ -34,7 +37,7 @@ const techCategories: TechCategory[] = [
     ],
   },
   {
-    title: 'Languages',
+    titleKey: 'stack.categories.languages',
     spanClass: 'md:col-span-1 lg:col-span-1 bento-row-2',
     accentColor: '#f472b6',
     skills: [
@@ -46,7 +49,7 @@ const techCategories: TechCategory[] = [
     ],
   },
   {
-    title: 'Mobile',
+    titleKey: 'stack.categories.mobile',
     spanClass: 'col-span-1',
     accentColor: '#34d399',
     skills: [
@@ -55,7 +58,7 @@ const techCategories: TechCategory[] = [
     ],
   },
   {
-    title: 'Databases & Backend',
+    titleKey: 'stack.categories.database',
     spanClass: 'col-span-1',
     accentColor: '#818cf8',
     skills: [
@@ -65,7 +68,7 @@ const techCategories: TechCategory[] = [
     ],
   },
   {
-    title: 'Design & Creative',
+    titleKey: 'stack.categories.design',
     spanClass: 'col-span-1 md:col-span-2',
     accentColor: '#fb923c',
     skills: [
@@ -76,7 +79,7 @@ const techCategories: TechCategory[] = [
     ],
   },
   {
-    title: 'Tools & Platforms',
+    titleKey: 'stack.categories.tools',
     spanClass: 'col-span-1 md:col-span-2',
     accentColor: '#a3e635',
     skills: [
@@ -134,10 +137,10 @@ function onCardLeave(event: MouseEvent) {
 
       <!-- ── Section header ── -->
       <div ref="headerRef" class="fade-in-up mb-14 text-center">
-        <p class="section-label">Tech Stack</p>
-        <h2 class="section-title">Keahlian &amp; Tools</h2>
+        <p class="section-label">{{ t('stack.label') }}</p>
+        <h2 class="section-title">{{ t('stack.title') }}</h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-          Teknologi yang saya gunakan untuk membangun product — dari frontend hingga mobile.
+          {{ t('stack.desc') }}
         </p>
       </div>
 
@@ -159,7 +162,7 @@ function onCardLeave(event: MouseEvent) {
             class="bento-label text-slate-800 dark:text-[var(--accent-color)]"
             :style="{ '--accent-color': category.accentColor }"
           >
-            {{ category.title }}
+            {{ t(category.titleKey) }}
           </p>
 
           <!-- Tech skill chips -->

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 /* ── Scroll-triggered animation ── */
 const sectionRef = ref<HTMLElement | null>(null)
@@ -85,13 +88,12 @@ const socials = [
 
       <!-- ── Section header ── -->
       <div ref="sectionRef" class="fade-in-up mb-10 md:mb-14 text-center">
-        <p class="section-label">Get In Touch</p>
+        <p class="section-label">{{ t('contact.label') }}</p>
         <h2 class="section-title">
-          Let's&nbsp;<span class="glow-text">Connect</span>
+          {{ t('contact.title_start') }}<span class="glow-text">{{ t('contact.title_highlight') }}</span>
         </h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-          Have a project in mind, a question, or just want to say hi?
-          My inbox is always open.
+          {{ t('contact.desc') }}
         </p>
       </div>
 
@@ -113,7 +115,7 @@ const socials = [
           <div class="box-shine" aria-hidden="true"></div>
 
           <!-- header label -->
-          <span class="social-eyebrow">Find me on</span>
+          <span class="social-eyebrow">{{ t('contact.find_me') }}</span>
 
           <!-- divider -->
           <div class="social-divider"></div>
@@ -150,7 +152,7 @@ const socials = [
           <!-- glass shine -->
           <div class="box-shine" aria-hidden="true"></div>
 
-          <h3 class="form-card-title text-slate-900 dark:text-[#f1f5f9]">Send a Message</h3>
+          <h3 class="form-card-title text-slate-900 dark:text-[#f1f5f9]">{{ t('contact.form.title') }}</h3>
 
           <!--
             Web3Forms:
@@ -162,25 +164,25 @@ const socials = [
             <!-- Name + Email on same row on desktop -->
             <div class="field-row">
               <div class="field-group">
-                <label for="contact-name" class="field-label">Name</label>
+                <label for="contact-name" class="field-label">{{ t('contact.form.name') }}</label>
                 <input
                   id="contact-name"
                   v-model="form.name"
                   type="text"
                   name="name"
-                  placeholder="Your Name ..."
+                  :placeholder="t('contact.form.name_ph')"
                   required
                   class="w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
                 />
               </div>
               <div class="field-group">
-                <label for="contact-email" class="field-label">Email</label>
+                <label for="contact-email" class="field-label">{{ t('contact.form.email') }}</label>
                 <input
                   id="contact-email"
                   v-model="form.email"
                   type="email"
                   name="email"
-                  placeholder="Your Email ..."
+                  :placeholder="t('contact.form.email_ph')"
                   required
                   class="w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
                 />
@@ -189,12 +191,12 @@ const socials = [
 
             <!-- Message -->
             <div class="field-group">
-              <label for="contact-message" class="field-label">Message</label>
+              <label for="contact-message" class="field-label">{{ t('contact.form.message') }}</label>
               <textarea
                 id="contact-message"
                 v-model="form.message"
                 name="message"
-                placeholder="Your Message ..."
+                :placeholder="t('contact.form.message_ph')"
                 rows="4"
                 required
                 class="resize-y min-h-[110px] w-full px-4 py-3 rounded-xl outline-none transition-all bg-slate-50/50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:bg-white/10"
@@ -214,7 +216,7 @@ const socials = [
             >
               <!-- idle -->
               <div v-if="status === 'idle'" class="flex items-center justify-center gap-2 px-6">
-                <span>Send Message</span>
+                <span>{{ t('contact.form.btn_send') }}</span>
                 <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                 </svg>
@@ -226,17 +228,17 @@ const socials = [
                   <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
                   <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
                 </svg>
-                <span>Sending…</span>
+                <span>{{ t('contact.form.btn_sending') }}</span>
               </div>
 
               <!-- success -->
               <div v-else-if="status === 'success'" class="flex items-center justify-center gap-2 px-6">
-                <span>✅ Message sent!</span>
+                <span>{{ t('contact.form.btn_success') }}</span>
               </div>
 
               <!-- error -->
               <div v-else class="flex items-center justify-center gap-2 px-6">
-                <span>❌ Something went wrong. Try again.</span>
+                <span>{{ t('contact.form.btn_error') }}</span>
               </div>
             </button>
 

@@ -1,69 +1,59 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Experience {
   id: number
-  role: string
+  key: string
   company: string
   date: string
   type: 'ACADEMIC' | 'INTERNSHIP' | 'ORGANIZATION'
-  description: string
 }
 
 const experiences: Experience[] = [
   {
     id: 1,
-    role: 'Asisten Praktikum Pemrograman Website',
+    key: 'asisten_web',
     company: 'Laboratorium Informatika Unsoed',
     date: 'Agustus 2025 – Januari 2026',
     type: 'ACADEMIC',
-    description:
-      'Membimbing mahasiswa dalam praktik pengembangan website, membantu troubleshooting kode, dan menilai tugas.',
   },
   {
     id: 2,
-    role: 'Asisten Praktikum Sistem Operasi',
+    key: 'asisten_os',
     company: 'Laboratorium Informatika Unsoed',
     date: 'Februari – Juli 2025',
     type: 'ACADEMIC',
-    description:
-      'Memandu jalannya praktikum, menjelaskan konsep dasar sistem operasi, dan mengevaluasi hasil praktik mahasiswa.',
   },
   {
     id: 3,
-    role: 'IT Support Technician (Internship)',
+    key: 'it_support',
     company: 'PT Starindo Jaya Packaging',
     date: 'Juli – Agustus 2025',
     type: 'INTERNSHIP',
-    description:
-      'Memberikan dukungan teknis untuk optimalisasi dan pemeliharaan perangkat keras serta lunak perusahaan.',
   },
   {
     id: 4,
-    role: 'User Interface Designer (Internship)',
+    key: 'uid',
     company: 'PT Cazh Teknologi Inovasi',
     date: 'April – Mei 2025',
     type: 'INTERNSHIP',
-    description:
-      'Merancang antarmuka (UI) dan prototipe aplikasi mobile secara kolaboratif menggunakan perangkat lunak Figma.',
   },
   {
     id: 5,
-    role: 'Content Creator (Internship)',
+    key: 'content',
     company: 'PT Cazh Teknologi Inovasi',
     date: 'Maret – Mei 2024',
     type: 'INTERNSHIP',
-    description:
-      'Merancang strategi, memproduksi konten, serta mengelola dan menganalisis kinerja publikasi media sosial.',
   },
   {
     id: 6,
-    role: 'Ketua Divisi Medkominfo',
+    key: 'medkominfo',
     company: 'Pengurus HMIF UNSOED',
     date: 'Maret – Desember 2025',
     type: 'ORGANIZATION',
-    description:
-      'Memimpin dan mengelola seluruh agenda kerja divisi Medkominfo, termasuk pengelolaan dan optimasi media sosial.',
   },
 ]
 
@@ -95,10 +85,10 @@ onMounted(() => {
 onUnmounted(() => window.removeEventListener('scroll', updateProgress))
 
 // ── Badge styles ──────────────────────────────────────────
-const badge: Record<Experience['type'], { bg: string; border: string; color: string; label: string }> = {
-  ACADEMIC:     { bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.30)', color: '#a5b4fc', label: 'Academic'     },
-  INTERNSHIP:   { bg: 'rgba(56,189,248,0.12)',  border: 'rgba(56,189,248,0.30)',  color: '#7dd3fc', label: 'Internship'   },
-  ORGANIZATION: { bg: 'rgba(52,211,153,0.12)',  border: 'rgba(52,211,153,0.30)',  color: '#6ee7b7', label: 'Organization' },
+const badge: Record<Experience['type'], { bg: string; border: string; color: string; labelKey: string }> = {
+  ACADEMIC:     { bg: 'rgba(129,140,248,0.12)', border: 'rgba(129,140,248,0.30)', color: '#a5b4fc', labelKey: 'experience.badges.academic' },
+  INTERNSHIP:   { bg: 'rgba(56,189,248,0.12)',  border: 'rgba(56,189,248,0.30)',  color: '#7dd3fc', labelKey: 'experience.badges.internship' },
+  ORGANIZATION: { bg: 'rgba(52,211,153,0.12)',  border: 'rgba(52,211,153,0.30)',  color: '#6ee7b7', labelKey: 'experience.badges.organization' },
 }
 
 // ── Icon map (FontAwesome class strings) ──────────────────────────
@@ -115,11 +105,10 @@ const typeIcon: Record<string, string> = {
 
       <!-- Section header -->
       <div class="text-center mb-10 md:mb-16">
-        <p class="section-label">Experience</p>
-        <h2 class="section-title">Pengalaman Profesional</h2>
+        <p class="section-label">{{ t('experience.label') }}</p>
+        <h2 class="section-title">{{ t('experience.title') }}</h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed px-4 md:px-0">
-          Perjalanan dari dunia akademik hingga industri nyata — membangun keahlian lintas domain
-          teknologi dan desain.
+          {{ t('experience.desc') }}
         </p>
       </div>
 
@@ -185,16 +174,16 @@ const typeIcon: Record<string, string> = {
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ t(`experience.items.${exp.key}.role`) }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
                   <span
                     class="shrink-0 px-2 py-0.5 rounded-full text-[0.6rem] font-bold uppercase tracking-wide"
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
-                  >{{ badge[exp.type].label }}</span>
+                  >{{ t(badge[exp.type].labelKey) }}</span>
                 </div>
-                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ t(`experience.items.${exp.key}.desc`) }}</p>
               </article>
             </template>
 
@@ -240,16 +229,16 @@ const typeIcon: Record<string, string> = {
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ t(`experience.items.${exp.key}.role`) }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
                   <span
                     class="shrink-0 px-2 py-0.5 rounded-full text-[0.6rem] font-bold uppercase tracking-wide"
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
-                  >{{ badge[exp.type].label }}</span>
+                  >{{ t(badge[exp.type].labelKey) }}</span>
                 </div>
-                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ t(`experience.items.${exp.key}.desc`) }}</p>
                 <p class="text-[0.65rem] font-semibold tracking-wide mt-3" style="color:#38bdf8;">
                   {{ exp.date }}
                 </p>
@@ -278,16 +267,16 @@ const typeIcon: Record<string, string> = {
                   <div class="flex items-center gap-2">
                     <i :class="typeIcon[exp.type]" class="text-base shrink-0" :style="{ color: badge[exp.type].color }" aria-hidden="true"></i>
                     <div>
-                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ exp.role }}</h3>
+                      <h3 class="text-slate-900 dark:text-white font-semibold text-sm leading-snug">{{ t(`experience.items.${exp.key}.role`) }}</h3>
                       <p class="text-slate-500 text-xs mt-0.5">{{ exp.company }}</p>
                     </div>
                   </div>
                   <span
                     class="shrink-0 px-2 py-0.5 rounded-full text-[0.6rem] font-bold uppercase tracking-wide"
                     :style="`background:${badge[exp.type].bg}; border:1px solid ${badge[exp.type].border}; color:${badge[exp.type].color};`"
-                  >{{ badge[exp.type].label }}</span>
+                  >{{ t(badge[exp.type].labelKey) }}</span>
                 </div>
-                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ exp.description }}</p>
+                <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">{{ t(`experience.items.${exp.key}.desc`) }}</p>
               </article>
             </template>
 

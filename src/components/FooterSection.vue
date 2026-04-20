@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const navLinks = [
-  { label: 'About',      href: '#about' },
-  { label: 'Services',   href: '#services' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Stack',      href: '#stack' },
-  { label: 'Projects',   href: '#projects' },
-  { label: 'Awards',     href: '#certificates' },
-  { label: 'Contact',    href: '#contact' },
+  { labelKey: 'nav.about',      href: '#about' },
+  { labelKey: 'nav.services',   href: '#services' },
+  { labelKey: 'nav.experience', href: '#experience' },
+  { labelKey: 'nav.stack',      href: '#stack' },
+  { labelKey: 'nav.projects',   href: '#projects' },
+  { labelKey: 'nav.awards',     href: '#certificates' },
+  { labelKey: 'nav.contact',    href: '#contact' },
 ]
 
 const socials = [
@@ -81,8 +85,7 @@ const year = new Date().getFullYear()
 
           <!-- Tagline -->
           <p class="brand-desc">
-            Building functional, beautiful, and impactful digital products —
-            one line of code at a time.
+            {{ t('footer.desc') }}
           </p>
 
           <!-- Social icons -->
@@ -105,12 +108,12 @@ const year = new Date().getFullYear()
              COL 2 — Navigation
         ──────────────────────────────────────────── -->
         <div class="footer-col">
-          <p class="col-heading">Navigation</p>
+          <p class="col-heading">{{ t('footer.nav_title') }}</p>
           <ul class="nav-list">
             <li v-for="link in navLinks" :key="link.href">
               <a :href="link.href" class="nav-link">
                 <span class="nav-link-dot" aria-hidden="true"></span>
-                {{ link.label }}
+                {{ t(link.labelKey) }}
               </a>
             </li>
           </ul>
@@ -120,7 +123,7 @@ const year = new Date().getFullYear()
              COL 3 — Get In Touch
         ──────────────────────────────────────────── -->
         <div class="footer-col">
-          <p class="col-heading">Get In Touch</p>
+          <p class="col-heading">{{ t('footer.contact_title') }}</p>
           <div class="contact-list">
             <component
               :is="item.isLink ? 'a' : 'div'"
@@ -134,7 +137,7 @@ const year = new Date().getFullYear()
               <div class="contact-icon-wrap">
                 <span class="contact-icon-svg" v-html="item.svg"></span>
               </div>
-              <span class="contact-label">{{ item.label }}</span>
+              <span class="contact-label">{{ item.label === 'Banyumas, Central Java' ? t('footer.location') : item.label }}</span>
             </component>
           </div>
         </div>
@@ -149,25 +152,25 @@ const year = new Date().getFullYear()
 
         <!-- Copyright -->
         <p class="bottom-copy">
-          © {{ year }} Nadzare Kafah Alatiha. All rights reserved.
+          © {{ year }} Nadzare Kafah Alatiha. {{ t('footer.rights') }}
         </p>
 
         <!-- Built with -->
         <p class="bottom-built">
-          Built with
+          {{ t('footer.built_with') }}
           <span class="built-tech">Vue 3</span>
           +
           <span class="built-tech">Tailwind CSS</span>
         </p>
 
         <!-- Back to top -->
-        <button class="top-btn" @click="scrollToTop" aria-label="Scroll to top">
+        <button class="top-btn" @click="scrollToTop" :aria-label="t('footer.back_to_top')">
           <svg class="top-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="19" x2="12" y2="5"/>
             <polyline points="5 12 12 5 19 12"/>
           </svg>
-          Back to Top
+          {{ t('footer.back_to_top') }}
         </button>
 
       </div>

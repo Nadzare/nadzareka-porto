@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 1. ASSET IMPORTS
 import larasenaThumb from '@/assets/projects/larasena.png'
@@ -12,9 +15,8 @@ import poscafeThumb from '@/assets/projects/poscafe-web.png'
 
 interface Project {
   id: number
-  title: string
+  key: string
   categories: string[]
-  description: string
   techStack: string[]
   thumbnail: string
 }
@@ -23,65 +25,57 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Larasena",
+    key: "larasena",
     categories: ["Web Development"],
-    description: "Aplikasi Terintegrasi Peta Leaflet JS dan Fitur Generate AI Batik.",
     techStack: ["Laravel", "Vue 3", "Tailwind CSS", "MySQL"],
     thumbnail: larasenaThumb
   },
   {
     id: 2,
-    title: "Menaspro",
+    key: "menaspro",
     categories: ["Web Development"],
-    description: "Aplikasi Analisis Data Mahasiswa menggunakan algoritma K-Means Clustering.",
     techStack: ["Laravel", "Vue 3", "Leaflet JS", "Tailwind CSS"],
     thumbnail: menasproThumb
   },
   {
     id: 3,
-    title: "Warung Orange",
+    key: "warungorange",
     categories: ["Web Development"],
-    description: "Marketplace Interaktif UMKM dengan Sistem Pembayaran Midtrans.",
     techStack: ["Laravel", "Livewire", "Filament", "MySQL"],
     thumbnail: warungOrangeThumb
   },
   {
     id: 4,
-    title: "Facetend",
+    key: "facetend",
     categories: ["Web Development", "Mobile Development"],
-    description: "Sistem Absensi Karyawan menggunakan Face Recognition API dan Validasi Geolokasi.",
     techStack: ["Flutter", "Firebase", "Face Recognition"],
     thumbnail: facetendThumb
   },
   {
     id: 5,
-    title: "Warungin",
+    key: "warungin",
     categories: ["Web Development", "Mobile Development"],
-    description: "Digitalisasi UMKM dengan Integrasi Pembayaran Midtrans dan Aplikasi Flutter.",
     techStack: ["Flutter", "Laravel", "Midtrans"],
     thumbnail: warunginThumb
   },
   {
     id: 6,
-    title: "Tiketing System",
+    key: "tiketing",
     categories: ["Web Development", "Mobile Development"],
-    description: "Platform Manajemen Tiket dan Reservasi Event Terintegrasi.",
     techStack: ["Laravel", "Vue 3", "MySQL", "Tailwind CSS"],
     thumbnail: tiketingThumb
   },
   {
     id: 7,
-    title: "Poscafe",
+    key: "poscafe",
     categories: ["Web Development", "Mobile Development"],
-    description: "Sistem Kasir Digital Terintegrasi untuk Manajemen Bisnis Kuliner.",
     techStack: ["Laravel", "Vue 3", "Midtrans", "Tailwind CSS"],
     thumbnail: poscafeThumb
   },
   {
     id: 8,
-    title: "UI/UX & Graphic Design",
+    key: "design_portfolio",
     categories: ["UI/UX Design", "Graphic Design"],
-    description: "Portofolio desain sedang dalam proses kurasi dan akan segera hadir.",
     techStack: ["Figma", "Photoshop", "Illustrator"],
     thumbnail: ""
   }
@@ -134,12 +128,11 @@ onMounted(() => {
     <div class="proj-glow proj-glow--purple" aria-hidden="true"></div>
 
     <div class="section-container relative z-10">
-      <!-- Section header -->
       <div ref="headerRef" class="fade-in-up mb-10 text-center">
-        <p class="section-label">Portfolio</p>
-        <h2 class="section-title">Project <span class="glow-text">Showcase</span></h2>
+        <p class="section-label">{{ t('projects.label') }}</p>
+        <h2 class="section-title">{{ t('projects.title_start') }}<span class="glow-text">{{ t('projects.title_highlight') }}</span></h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-          Koleksi proyek yang dibangun dengan passion — dari hackathon hingga produk nyata.
+          {{ t('projects.desc') }}
         </p>
       </div>
 
@@ -153,7 +146,12 @@ onMounted(() => {
             :class="{ 'tab-pill--active': activeCategory === cat }"
             @click="setCategory(cat)"
           >
-            {{ cat }}
+            <!-- We assume the keys like "Web Development" map perfectly to JSON key formatted -->
+            {{ cat === 'All' ? t('projects.categories.all') :
+               cat === 'Web Development' ? t('projects.categories.web') :
+               cat === 'Mobile Development' ? t('projects.categories.mobile') :
+               cat === 'UI/UX Design' ? t('projects.categories.uiux') :
+               cat === 'Graphic Design' ? t('projects.categories.graphic') : cat }}
           </button>
         </div>
       </div>
@@ -171,11 +169,11 @@ onMounted(() => {
             <img 
               v-if="project.thumbnail"
               :src="project.thumbnail" 
-              :alt="project.title" 
+              :alt="t(`projects.items.${project.key}.title`)" 
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             >
             <div v-else class="text-slate-400 dark:text-slate-500 font-medium tracking-widest uppercase text-sm">
-              Coming Soon
+              {{ t('projects.coming_soon') }}
             </div>
             
             <!-- Accent glow blob for aesthetics -->
@@ -190,11 +188,11 @@ onMounted(() => {
             </div>
             
             <h3 class="font-display font-bold text-[1.15rem] text-slate-900 dark:text-white mb-2 leading-snug">
-              {{ project.title }}
+              {{ t(`projects.items.${project.key}.title`) }}
             </h3>
             
             <p class="text-sm text-slate-600 dark:text-gray-400 mb-5 line-clamp-3">
-              {{ project.description }}
+              {{ t(`projects.items.${project.key}.desc`) }}
             </p>
 
             <!-- Tech Stack Tags -->
@@ -213,7 +211,7 @@ onMounted(() => {
 
       <!-- Empty state -->
       <div v-if="filteredProjects.length === 0" class="text-center py-20 text-slate-500 text-sm">
-        No projects found in this category yet.
+        {{ t('projects.empty') }}
       </div>
     </div>
   </section>

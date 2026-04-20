@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Service {
   title: string
@@ -11,44 +14,44 @@ interface Service {
 const services: Service[] = [
   {
     title: 'Web Development',
+    key: 'web',
     accentColor: '#38bdf8',
-    description:
-      'Pembuatan website performa tinggi yang responsif, SEO-friendly, dan scalable menggunakan tech-stack modern terkini.',
+    description: '',
     fa: 'fa-solid fa-code',
   },
   {
     title: 'Mobile Development',
+    key: 'mobile',
     accentColor: '#34d399',
-    description:
-      'Pembangunan aplikasi mobile cross-platform yang mulus dan interaktif untuk ekosistem iOS maupun Android.',
+    description: '',
     fa: 'fa-solid fa-mobile-screen',
   },
   {
     title: 'UI/UX Design',
+    key: 'uiux',
     accentColor: '#f472b6',
-    description:
-      'Perancangan antarmuka yang intuitif, estetik, dan sangat berfokus pada kenyamanan pengalaman interaksi pengguna.',
+    description: '',
     fa: 'fa-solid fa-pen-ruler',
   },
   {
     title: 'IT Consultant',
+    key: 'consultant',
     accentColor: '#fbbf24',
-    description:
-      'Layanan konsultasi arsitektur sistem, pemilihan tech-stack, dan eskalasi efisiensi bisnis digital untuk UMKM dan rintisan.',
+    description: '',
     fa: 'fa-solid fa-lightbulb',
   },
   {
     title: 'Graphic Design',
+    key: 'graphic',
     accentColor: '#fb923c',
-    description:
-      'Pembuatan aset visual kreatif, branding identitas, dan materi pemasaran yang menarik serta profesional.',
+    description: '',
     fa: 'fa-solid fa-palette',
   },
   {
     title: 'Social Media Management',
+    key: 'social',
     accentColor: '#818cf8',
-    description:
-      'Perancangan strategi konten, produksi aset visual, hingga optimasi kampanye digital untuk meningkatkan engagement.',
+    description: '',
     fa: 'fa-solid fa-share-nodes',
   },
 ]
@@ -78,12 +81,12 @@ onMounted(() => {
 
       <!-- ── Section header ── -->
       <div ref="headerRef" class="fade-in-up mb-16 text-center">
-        <p class="section-label">What I Offer</p>
+        <p class="section-label">{{ t('services.label') }}</p>
         <h2 class="section-title">
-          My <span class="glow-text">Services</span>
+          {{ t('services.title_start') }} <span class="glow-text">{{ t('services.title_highlight') }}</span>
         </h2>
         <p class="text-slate-500 dark:text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-          Solusi digital end-to-end — dari konsep hingga produk yang siap digunakan.
+          {{ t('services.desc') }}
         </p>
       </div>
 
@@ -106,16 +109,16 @@ onMounted(() => {
           </div>
 
           <!-- ── Title ── -->
-          <h3 class="srv-title text-slate-800 dark:text-white">{{ service.title }}</h3>
+          <h3 class="srv-title text-slate-800 dark:text-white">{{ t(`services.items.${(service as any).key}.title`) }}</h3>
 
           <!-- ── Description ── -->
-          <p class="srv-desc text-slate-600 dark:text-gray-400">{{ service.description }}</p>
+          <p class="srv-desc text-slate-600 dark:text-gray-400">{{ t(`services.items.${(service as any).key}.desc`) }}</p>
 
           <!-- ── CTA — pushed to bottom with mt-auto ── -->
           <div class="srv-cta">
             <div class="srv-cta-divider"></div>
             <a href="#contact" class="srv-cta-link text-slate-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
-              <span>Diskusikan Proyek</span>
+              <span>{{ t('services.cta') }}</span>
               <svg class="srv-cta-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 8h10M9 4l4 4-4 4"/>
               </svg>

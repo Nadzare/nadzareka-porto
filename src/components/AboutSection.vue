@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const sectionRef = ref<HTMLElement | null>(null)
 const textRef = ref<HTMLElement | null>(null)
@@ -42,7 +45,6 @@ const highlights = [
             class="bg-white border border-slate-200 shadow-sm dark:bg-[#1E293B]/40 dark:backdrop-blur-xl dark:border-white/10 dark:shadow-none rounded-2xl p-6 flex flex-col gap-3"
             :class="`delay-${(i + 1) * 100}`"
           >
-            <!-- FontAwesome icon with per-card accent colour -->
             <i
               :class="item.fa"
               class="text-3xl mb-1"
@@ -51,9 +53,9 @@ const highlights = [
             ></i>
             <div>
               <div class="font-display font-bold text-slate-900 dark:text-white text-lg" style="font-family: 'Outfit', sans-serif;">
-                {{ item.label }}
+                {{ t(`about.highlights.${item.label.toLowerCase().split(' ')[1] || item.label.toLowerCase()}`) }}
               </div>
-              <div class="text-xs text-slate-600 dark:text-gray-400 mt-0.5 leading-relaxed">{{ item.sub }}</div>
+              <div class="text-xs text-slate-600 dark:text-gray-400 mt-0.5 leading-relaxed">{{ t(`about.highlights.${item.label.toLowerCase().split(' ')[1] ? item.label.toLowerCase().split(' ')[1] + '_sub' : item.label.toLowerCase() === 'informatika' ? 'unsoed' : item.label.toLowerCase() + '_sub'}`) }}</div>
             </div>
           </div>
         </div>
@@ -61,40 +63,37 @@ const highlights = [
         <!-- Right: Bio text -->
         <div ref="textRef" class="fade-in-right space-y-6">
           <div>
-            <p class="section-label">About Me</p>
+            <p class="section-label">{{ t('about.label') }}</p>
             <h2 class="section-title">
-              Membangun Solusi Digital yang
+              {{ t('about.title_start') }}
               <span style="background: linear-gradient(135deg, #38bdf8, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                fungsional dan berdampak
+                {{ t('about.title_highlight') }}
               </span>
+              {{ t('about.title_end') }}
             </h2>
           </div>
 
           <p class="text-slate-600 dark:text-slate-300 leading-8 text-base">
-            Mahasiswa aktif Informatika yang berfokus pada pengembangan sistem informasi, desain UI/UX,
-            dan strategi digital. Memiliki pengalaman komprehensif dalam merancang solusi teknologi dari
-            tahap konseptual hingga eksekusi visual, termasuk pembuatan aset grafis dan manajemen media sosial.
+            {{ t('about.desc_1') }}
           </p>
 
           <p class="text-slate-500 dark:text-slate-400 leading-8 text-sm">
-            Pribadi yang analitis, inovatif, dan siap berkolaborasi dalam tim untuk menciptakan produk
-            digital yang berdampak nyata. Passionate tentang intersection of design and engineering —
-            membuat hal yang indah sekaligus berfungsi dengan baik.
+            {{ t('about.desc_2') }}
           </p>
 
           <div class="flex gap-4 flex-wrap pt-2">
             <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
               <div class="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400" style="box-shadow: 0 0 8px rgba(52,211,153,0.8);"></div>
-              Open to opportunities
+              {{ t('about.status') }}
             </div>
             <div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
               <div class="w-2 h-2 rounded-full bg-sky-500 dark:bg-sky-400"></div>
-              Based in Purwokerto, Indonesia
+              {{ t('about.location') }}
             </div>
           </div>
 
           <a href="#projects" class="btn-ghost inline-flex">
-            View My Work →
+            {{ t('about.cta') }}
           </a>
         </div>
 

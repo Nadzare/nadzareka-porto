@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 /* ─────────────────────────────────────────────────────────────
    TYPES
@@ -8,17 +11,14 @@ type CertTab = 'awards' | 'organization' | 'course'
 
 interface AwardItem {
   id: number
-  title: string
-  institution: string
+  key: string
   image: string
-  badge: string
   badgeColor: string
 }
 
 interface OtherItem {
   id: number
-  title: string
-  sub: string
+  key: string
   icon: string
   color: string
 }
@@ -29,82 +29,68 @@ interface OtherItem {
 const awards: AwardItem[] = [
   {
     id: 1,
-    title: 'FINALIST GEMASTIK XVIII 2025',
-    institution: 'Dikti — Divisi VIII Software Development',
+    key: 'gemastik',
     image: new URL('@/assets/sertifikat-gemastik.jpg', import.meta.url).href,
-    badge: 'Finalist',
     badgeColor: '#fbbf24',
   },
   {
     id: 2,
-    title: 'JUARA III Hackathon',
-    institution: 'National IT Roll Out HMTI UMP 2025',
+    key: 'hackathon',
     image: new URL('@/assets/sertifikat-hackathon.png', import.meta.url).href,
-    badge: 'Juara III',
     badgeColor: '#f87171',
   },
   {
     id: 3,
-    title: 'TOP V FINALIST Essay Competition',
-    institution: 'Society of Renewable Energy ITB 2025',
+    key: 'essay',
     image: new URL('@/assets/sertifikat-sre.jpg', import.meta.url).href,
-    badge: 'Top 5',
     badgeColor: '#34d399',
   },
   {
     id: 4,
-    title: 'JUARA II Web Design Competition',
-    institution: 'Evolution Interium Fest — Telkom University 2024',
+    key: 'webdesign',
     image: new URL('@/assets/sertifikat-webdesain.jpeg', import.meta.url).href,
-    badge: 'Juara II',
     badgeColor: '#c084fc',
   },
   {
     id: 5,
-    title: 'JUARA II PKM Rektor Cup XI',
-    institution: 'Bidang PKM-PI — Universitas Jenderal Soedirman 2024',
+    key: 'pkm',
     image: new URL('@/assets/sertifikat-pkmpi.jpeg', import.meta.url).href,
-    badge: 'Juara II',
     badgeColor: '#c084fc',
   },
   {
     id: 6,
-    title: 'FINALIST Web Design Competition',
-    institution: 'Carnival Technology — Universitas Jember',
+    key: 'carnival',
     image: new URL('@/assets/sertifikat-finaliswebdesain.jpeg', import.meta.url).href,
-    badge: 'Finalist',
     badgeColor: '#fbbf24',
   },
   {
     id: 7,
-    title: 'JUARA III Discovery IT',
-    institution: 'Inovasi Terapan — Universitas Negeri Jakarta',
+    key: 'discovery',
     image: new URL('@/assets/sertifikat-inovasi.jpg', import.meta.url).href,
-    badge: 'Juara III',
     badgeColor: '#f87171',
   },
 ]
 
 const organizations: OtherItem[] = [
-  { id: 1, title: 'Ketua Divisi Medkominfo', sub: 'HMIF UNSOED 2025', icon: '📢', color: '#38bdf8' },
-  { id: 2, title: 'Kadiv PDD Maskrab Informatika', sub: 'Maskrab Informatika 2025', icon: '🎨', color: '#818cf8' },
-  { id: 3, title: 'Staf PDD Soedirman Technophoria', sub: 'Soedirman Technophoria 2025', icon: '⚙️', color: '#34d399' },
-  { id: 4, title: 'Panitia Webinar Nasional', sub: 'Divisi Publikasi & Dokumentasi', icon: '🖥️', color: '#fb923c' },
-  { id: 5, title: 'Koordinator Acara Informatika Fest', sub: 'HMIF UNSOED 2024', icon: '🎉', color: '#f472b6' },
+  { id: 1, key: 'org_ketua', icon: '📢', color: '#38bdf8' },
+  { id: 2, key: 'org_pdd_maskrab', icon: '🎨', color: '#818cf8' },
+  { id: 3, key: 'org_pdd_tech', icon: '⚙️', color: '#34d399' },
+  { id: 4, key: 'org_webinar', icon: '🖥️', color: '#fb923c' },
+  { id: 5, key: 'org_fest', icon: '🎉', color: '#f472b6' },
 ]
 
 const courses: OtherItem[] = [
-  { id: 1, title: 'Alibaba Cloud Certified Developer', sub: 'Alibaba Cloud Academy', icon: '☁️', color: '#fb923c' },
-  { id: 2, title: 'Fullstack Web Developer Bootcamp', sub: 'Codepolitan', icon: '💻', color: '#38bdf8' },
-  { id: 3, title: 'Pelatihan UI/UX Design', sub: 'Program Intensif', icon: '🎨', color: '#c084fc' },
-  { id: 4, title: 'Belajar Membuat Aplikasi Back-End', sub: 'Dicoding Indonesia', icon: '🔧', color: '#34d399' },
-  { id: 5, title: 'Flutter Mobile Development', sub: 'Google x Dicoding', icon: '📱', color: '#818cf8' },
+  { id: 1, key: 'crs_alibaba', icon: '☁️', color: '#fb923c' },
+  { id: 2, key: 'crs_fullstack', icon: '💻', color: '#38bdf8' },
+  { id: 3, key: 'crs_uiux', icon: '🎨', color: '#c084fc' },
+  { id: 4, key: 'crs_backend', icon: '🔧', color: '#34d399' },
+  { id: 5, key: 'crs_flutter', icon: '📱', color: '#818cf8' },
 ]
 
 const tabs = [
-  { key: 'awards'       as CertTab, label: 'Penghargaan & Kejuaraan', fa: 'fa-solid fa-medal'       },
-  { key: 'organization' as CertTab, label: 'Kepanitiaan & Volunteer',  fa: 'fa-solid fa-users'       },
-  { key: 'course'       as CertTab, label: 'Bootcamp & Course',        fa: 'fa-solid fa-laptop-code' },
+  { key: 'awards'       as CertTab, labelKey: 'certificates.tabs.awards',       fa: 'fa-solid fa-medal'       },
+  { key: 'organization' as CertTab, labelKey: 'certificates.tabs.organization',  fa: 'fa-solid fa-users'       },
+  { key: 'course'       as CertTab, labelKey: 'certificates.tabs.course',        fa: 'fa-solid fa-laptop-code' },
 ]
 
 /* ─────────────────────────────────────────────────────────────
@@ -214,12 +200,12 @@ onMounted(() => {
            HEADER
       ══════════════════════════════ -->
       <div ref="headerRef" class="fade-in-up mb-10 text-center">
-        <p class="section-label">Achievements</p>
+        <p class="section-label">{{ t('certificates.label') }}</p>
         <h2 class="section-title">
-          Sertifikat &amp; <span class="glow-text">Prestasi</span>
+          {{ t('certificates.title_start') }}<span class="glow-text">{{ t('certificates.title_highlight') }}</span>
         </h2>
         <p class="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-          Pencapaian dari berbagai kompetisi nasional, organisasi, dan program pelatihan.
+          {{ t('certificates.desc') }}
         </p>
       </div>
 
@@ -236,7 +222,7 @@ onMounted(() => {
             @click="activeTab = tab.key"
           >
             <i :class="tab.fa" aria-hidden="true"></i>
-            {{ tab.label }}
+            {{ t(tab.labelKey) }}
           </button>
         </div>
       </div>
@@ -289,7 +275,7 @@ onMounted(() => {
                 <div class="card-img-wrap">
                   <img
                     :src="(item as AwardItem).image"
-                    :alt="item.title"
+                    :alt="t(`certificates.items.${(item as AwardItem).key}.title`)"
                     class="card-img"
                     loading="lazy"
                   />
@@ -302,7 +288,7 @@ onMounted(() => {
                       color: (item as AwardItem).badgeColor,
                     }"
                   >
-                    {{ (item as AwardItem).badge }}
+                    {{ t(`certificates.items.${(item as AwardItem).key}.badge`) }}
                   </div>
                   <!-- Gradient fade into body -->
                   <div class="card-img-fade"></div>
@@ -345,18 +331,18 @@ onMounted(() => {
                 >
                   {{
                     activeTab === 'awards'
-                      ? (item as AwardItem).badge
+                      ? t(`certificates.items.${(item as AwardItem).key}.badge`)
                       : activeTab === 'organization'
-                        ? 'Kepanitiaan & Volunteer'
-                        : 'Bootcamp & Course'
+                        ? t('certificates.tabs.organization')
+                        : t('certificates.tabs.course')
                   }}
                 </span>
-                <h3 class="card-title text-slate-900 dark:text-[#f1f5f9]">{{ item.title }}</h3>
+                <h3 class="card-title text-slate-900 dark:text-[#f1f5f9]">{{ t(`certificates.items.${item.key}.title`) }}</h3>
                 <p class="card-institution text-slate-600 dark:text-[#64748b]">
                   {{
                     activeTab === 'awards'
-                      ? (item as AwardItem).institution
-                      : (item as OtherItem).sub
+                      ? t(`certificates.items.${item.key}.institution`)
+                      : t(`certificates.items.${item.key}.sub`)
                   }}
                 </p>
               </div>

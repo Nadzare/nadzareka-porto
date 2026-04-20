@@ -12,7 +12,7 @@
   "hero": {
     "badge": "Available for Work · Portfolio 2026",
     "greeting": "is a",
-    "bio": "Active Informatics student focusing on information system development, UI/UX design, and digital strategies. Experienced in designing solutions from the conceptual stage through to visual execution.",
+    "bio": "An active Informatics student focusing on information system development, UI/UX design, and digital strategies. Experienced in designing solutions from the conceptual stage through to visual execution.",
     "cta_cv": "Download CV",
     "cta_work": "See My Work",
     "cta_hire": "Hire Me",
@@ -23,5 +23,192 @@
       "internships": "Internships",
       "years": "Years Learning"
     }
+  },
+  "about": {
+    "label": "About Me",
+    "title_start": "Building ",
+    "title_highlight": "functional and impactful",
+    "title_end": " digital solutions",
+    "desc_1": "An active Informatics student specializing in information system development, UI/UX design, and digital strategies. Demonstrated comprehensive experience in engineering technological solutions from the conceptual phase through to visual execution, encompassing robust graphic asset creation and strategic social media management.",
+    "desc_2": "An analytical and innovative individual, highly adaptable and ready to collaborate within cross-functional teams to engineer digital products that deliver tangible impact. Deeply passionate about the intersection of design and engineering — crafting interfaces that are as visually exceptional as they are functionally robust.",
+    "status": "Open to opportunities",
+    "location": "Based in Purwokerto, Indonesia",
+    "cta": "View My Work →",
+    "highlights": {
+      "informatics": "Informatics",
+      "unsoed": "Universitas Jenderal Soedirman",
+      "awards": "7 Awards",
+      "awards_sub": "National & Regional Competitions",
+      "interns": "2 Internships",
+      "interns_sub": "PT Starindo & PT Cazh",
+      "projects": "8+ Projects",
+      "projects_sub": "Web, Mobile & Design"
+    }
+  },
+  "services": {
+    "label": "What I Offer",
+    "title_start": "My ",
+    "title_highlight": "Services",
+    "desc": "End-to-end digital solutions — from concept to ready-to-use products.",
+    "cta": "Discuss a Project",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "desc": "Building responsive, SEO-friendly, and scalable high-performance websites using the latest modern tech stack."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "desc": "Building smooth and interactive cross-platform mobile applications for both iOS and Android ecosystems."
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "desc": "Designing intuitive, aesthetic interfaces highly focused on user experience and comfort."
+      },
+      "consultant": {
+        "title": "IT Consultant",
+        "desc": "System architecture consulting, tech-stack selection, and digital business escalation for MSMEs and startups."
+      },
+      "graphic": {
+        "title": "Graphic Design",
+        "desc": "Creating creative visual assets, brand identities, and engaging professional marketing materials."
+      },
+      "social": {
+        "title": "Social Media Management",
+        "desc": "Content strategy planning, visual asset production, and digital campaign optimization to boost engagement."
+      }
+    }
+  },
+  "experience": {
+    "label": "Experience",
+    "title": "Professional Experience",
+    "desc": "The journey from academia to the real industry — building cross-domain expertise in technology and design.",
+    "badges": {
+      "academic": "Academic",
+      "internship": "Internship",
+      "organization": "Organization"
+    },
+    "items": {
+      "asisten_web": {
+        "role": "Website Development Assistant",
+        "desc": "Guided students in web development practical sessions, provided targeted code troubleshooting, and systematically evaluated technical assignments."
+      },
+      "asisten_os": {
+        "role": "Operating Systems Assistant",
+        "desc": "Led laboratory sessions, instructed core Operating Systems concepts, and assessed practical student coursework."
+      },
+      "it_support": {
+        "role": "IT Support Technician (Internship)",
+        "desc": "Delivered comprehensive technical support focused on the optimization and maintenance of corporate hardware and software infrastructure."
+      },
+      "uid": {
+        "role": "User Interface Designer (Internship)",
+        "desc": "Spearheaded collaborative UI design and rapid prototyping for mobile applications using Figma."
+      },
+      "content": {
+        "role": "Content Creator (Internship)",
+        "desc": "Strategized and executed content production, while adeptly managing and analyzing social media metrics to maximize publication impact."
+      },
+      "medkominfo": {
+        "role": "Head of Medkominfo Division",
+        "desc": "Directed and managed all Medkominfo division initiatives, driving impactful social media strategies and digital optimization."
+      }
+    }
+  },
+  "stack": {
+    "label": "Tech Stack",
+    "title": "Skills & Tools",
+    "desc": "Technologies I use to build products — from frontend to mobile.",
+    "categories": {
+      "web": "Web & Frameworks",
+      "languages": "Languages",
+      "mobile": "Mobile",
+      "database": "Databases & Backend",
+      "design": "Design & Creative",
+      "tools": "Tools & Platforms"
+    }
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title_start": "Project ",
+    "title_highlight": "Showcase",
+    "desc": "A collection of projects built with passion — from hackathons to real products.",
+    "categories": {
+      "all": "All",
+      "web": "Web Development",
+      "mobile": "Mobile Development",
+      "uiux": "UI/UX Design",
+      "graphic": "Graphic Design"
+    },
+    "empty": "No projects found in this category yet.",
+    "coming_soon": "Coming Soon",
+    "items": {
+      "larasena": { "title": "Larasena", "desc": "An integrated web application featuring Leaflet JS mapping and an AI-powered Batik pattern generation feature." },
+      "menaspro": { "title": "Menaspro", "desc": "A student data analytics application utilizing the K-Means Clustering algorithm for insightful data segmentation." },
+      "warungorange": { "title": "Warung Orange", "desc": "An interactive e-commerce marketplace for MSMEs, seamlessly integrated with the Midtrans payment gateway." },
+      "facetend": { "title": "Facetend", "desc": "An advanced employee attendance system utilizing Face Recognition API alongside secure Geolocation validation." },
+      "warungin": { "title": "Warungin", "desc": "A holistic MSME digitalization platform featuring Midtrans payment integration and a dedicated Flutter mobile application." },
+      "tiketing": { "title": "Tiketing System", "desc": "A comprehensive event platform engineered for streamlined ticketing and reservation management." },
+      "poscafe": { "title": "Poscafe", "desc": "A fully-integrated digital Point-of-Sale (POS) system tailored for culinary business management." },
+      "design_portfolio": { "title": "UI/UX & Graphic Design", "desc": "The design portfolio is currently undergoing curation and will be available shortly." }
+    }
+  },
+  "certificates": {
+    "label": "Achievements",
+    "title_start": "Certificates & ",
+    "title_highlight": "Awards",
+    "desc": "Achievements from various national competitions, organizations, and training programs.",
+    "tabs": {
+      "awards": "Awards & Competitions",
+      "organization": "Committees & Volunteering",
+      "course": "Bootcamp & Course"
+    },
+    "items": {
+      "gemastik": { "title": "FINALIST GEMASTIK XVIII 2025", "institution": "Dikti - Division VIII Software Development", "badge": "Finalist" },
+      "hackathon": { "title": "3RD PLACE Hackathon", "institution": "National IT Roll Out HMTI UMP 2025", "badge": "3rd Place" },
+      "essay": { "title": "TOP 5 FINALIST Essay Competition", "institution": "Society of Renewable Energy ITB 2025", "badge": "Top 5" },
+      "webdesign": { "title": "2ND PLACE Web Design Competition", "institution": "Evolution Interium Fest - Telkom University 2024", "badge": "2nd Place" },
+      "pkm": { "title": "2ND PLACE PKM Rektor Cup XI", "institution": "Bidang PKM-PI - Universitas Jenderal Soedirman 2024", "badge": "2nd Place" },
+      "carnival": { "title": "FINALIST Web Design Competition", "institution": "Carnival Technology - Universitas Jember", "badge": "Finalist" },
+      "discovery": { "title": "3RD PLACE Discovery IT", "institution": "Inovasi Terapan - Universitas Negeri Jakarta", "badge": "3rd Place" },
+      "org_ketua": { "title": "Head of Medkominfo Division", "sub": "HMIF UNSOED 2025" },
+      "org_pdd_maskrab": { "title": "Head of PDD Maskrab Informatics", "sub": "Maskrab Informatics 2025" },
+      "org_pdd_tech": { "title": "PDD Staff Soedirman Technophoria", "sub": "Soedirman Technophoria 2025" },
+      "org_webinar": { "title": "National Webinar Committee", "sub": "Publication & Documentation Division" },
+      "org_fest": { "title": "Event Coordinator Informatics Fest", "sub": "HMIF UNSOED 2024" },
+      "crs_alibaba": { "title": "Alibaba Cloud Certified Developer", "sub": "Alibaba Cloud Academy" },
+      "crs_fullstack": { "title": "Fullstack Web Developer Bootcamp", "sub": "Codepolitan" },
+      "crs_uiux": { "title": "UI/UX Design Training", "sub": "Intensive Program" },
+      "crs_backend": { "title": "Learning Back-End Application Development", "sub": "Dicoding Indonesia" },
+      "crs_flutter": { "title": "Flutter Mobile Development", "sub": "Google x Dicoding" }
+    }
+  },
+  "contact": {
+    "label": "Get In Touch",
+    "title_start": "Let's ",
+    "title_highlight": "Connect",
+    "desc": "Have a project in mind, a question, or just want to say hi? My inbox is always open.",
+    "find_me": "Find me on",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "name_ph": "Your Name ...",
+      "email": "Email",
+      "email_ph": "Your Email ...",
+      "message": "Message",
+      "message_ph": "Your Message ...",
+      "btn_send": "Send Message",
+      "btn_sending": "Sending...",
+      "btn_success": "✅ Message sent!",
+      "btn_error": "❌ Something went wrong. Try again."
+    }
+  },
+  "footer": {
+    "desc": "Building functional, beautiful, and impactful digital products — one line of code at a time.",
+    "nav_title": "Navigation",
+    "contact_title": "Get In Touch",
+    "rights": "All rights reserved.",
+    "built_with": "Built with",
+    "back_to_top": "Back to Top",
+    "location": "Banyumas, Central Java"
   }
 }
