@@ -1,42 +1,97 @@
-# nadzareka-porto
+# Nadzare Kafah Alfatiha - Professional Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, highly interactive, and visually stunning personal portfolio built with **Vue 3**, **Vite**, and **Tailwind CSS v4**. It features a premium "dark-tech glassmorphism" aesthetic, smooth scroll-triggered animations, multi-language support (i18n), and a custom trailing cursor to deliver a highly engaging user experience.
 
-## Recommended IDE Setup
+## ✨ Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Modern Tech Stack**: Built on Vue 3 (Composition API) and bundled with Vite for lightning-fast performance.
+- **Premium Aesthetics**: Glassmorphism UI, a dynamic animated background (floating blobs), and subtle micro-animations.
+- **Dark & Light Mode**: Seamless theming support with system preference detection and manual toggle.
+- **Internationalization (i18n)**: Multi-language support out of the box, allowing users to toggle between available languages.
+- **Custom Interactive Cursor**: A custom dot-and-ring trailing cursor with smooth interpolations (lerp smoothing).
+- **Scroll Progress Indicator**: Dynamic progress bar pinned at the top of the viewport.
+- **Fully Responsive**: Optimized for seamless viewing across all devices (Mobile, Tablet, Desktop).
+- **Comprehensive Sections**:
+  - **Hero**: Typewriter effect & PDF CV download.
+  - **About Me**: Brief background and history.
+  - **Services**: Services offered to clients.
+  - **Experience Timeline**: Journey and past work experiences.
+  - **Tech Stack**: Interactive Bento Grid showcasing skills.
+  - **Projects Showcase**: Projects categorized and filtered dynamically.
+  - **Certificates**: Interactive carousel using Swiper UI.
+  - **Contact**: Reach out or connect via social platforms.
 
-## Recommended Browser Setup
+## 🛠️ Tech Stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- **Framework**: [Vue 3](https://vuejs.org/) (Composition API)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Routing**: [Vue Router](https://router.vuejs.org/)
+- **Internationalization**: [Vue I18n](https://kazupon.github.io/vue-i18n/)
+- **Carousels**: [Swiper UI](https://swiperjs.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-## Type Support for `.vue` Imports in TS
+## 🚀 Getting Started
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-## Customize configuration
+### Prerequisites
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [Node.js](https://nodejs.org/en/) (v20.19.0 or higher recommended)
+- npm (or yarn / pnpm)
 
-## Project Setup
+### Installation
 
-```sh
-npm install
+1. **Clone the repository** (if applicable) or download the source code:
+   ```bash
+   git clone <repository-url>
+   cd nadzareka-porto
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   *The application will typically map to `http://localhost:5173/` by default.*
+
+## 📦 Available Scripts
+
+In the project directory, you can run:
+
+- `npm run dev`: Starts the Vite development server with Hot-Module Replacement (HMR).
+- `npm run build`: Type-checks via `vue-tsc` and bundles the app for production in the `dist` folder.
+- `npm run preview`: Bootstraps a local web server that serves the production build from `dist`.
+- `npm run format`: Runs Prettier to format source files (`src/`).
+
+## 📂 Project Structure
+
+```text
+nadzareka-porto/
+├── public/                 # Static assets (favicons, etc.)
+├── src/
+│   ├── assets/             # Images, project thumbnails, CV pdf
+│   ├── components/         # Reusable Vue components (Sections, Navbar, Footer, Preloader)
+│   ├── composables/        # Vue composables (e.g., useTheme)
+│   ├── locales/            # i18n translation files
+│   ├── router/             # Vue Router configuration
+│   ├── App.vue             # Main Application Root
+│   ├── main.ts             # Application entry point
+│   └── style.css           # Global CSS & Tailwind utilities
+├── index.html              # HTML template
+├── package.json            # Project metadata and dependencies
+└── tailwind.config.ts      # Tailwind CSS v4 wrapper (if present)
 ```
 
-### Compile and Hot-Reload for Development
+## 🤝 Contributing
 
-```sh
-npm run dev
-```
+Contributions, issues, and feature requests are welcome!
+Feel free to check [issues page](#) if you want to contribute.
 
-### Type-Check, Compile and Minify for Production
+## 📝 License
 
-```sh
-npm run build
-```
+This project is open-source and available under the [MIT License](LICENSE).
